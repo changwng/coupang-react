@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 const SlideContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 200px;
+  height: 300px;
   border: 1px solid;
   ${({ topContainer }) =>
     topContainer &&
@@ -12,8 +12,8 @@ const SlideContainer = styled.div`
       display: flex;
       align-items: center;
     `}
-  transition:.5s;
-  left: -${({ left }) => left * 100}%;
+  transition:${({transition}) => transition}s;
+  left: ${({ left }) => left * 100}%;
   top: 0;
   ${({ slideCon }) =>
     slideCon &&
