@@ -1,1 +1,1 @@
-export const SLIDE = ["red", "blue", "black"];
+export const SLIDE = ["red", "blue", "black", "yellow", "pink", "gray"];

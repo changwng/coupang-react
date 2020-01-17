@@ -3,7 +3,7 @@ import styled from "styled-components";
 const SlideContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 200px;
+  height: 100%;
   background: ${({ color }) => color};
   left: ${({ left }) => left * 100}%;
 `;
