@@ -9,51 +9,52 @@
     },
     {
       "image": "item_img2.jpg",
-      "itemName": "노블레 튼튼 도시락",
+      "itemName": "QCY-T1",
       "underPrice": "20,000",
       "price": "30,000",
       "id": 2
     },
     {
       "image": "item_img3.jpg",
-      "itemName": "QCY-T1",
+      "itemName": "멋진 핑크핑크 도시락",
       "underPrice": "20,000",
       "price": "30,000",
       "id": 3
     },
     {
       "image": "item_img2.jpg",
-      "itemName": "QCY-T1",
+      "itemName": "이거슨 이어폰",
       "underPrice": "20,000",
       "price": "30,000",
       "id": 4
-    },{
-        "image": "item_img1.jpg",
-        "itemName": "다우니 퍼퓸 스노우",
-        "underPrice": "20,000",
-        "price": "30,000",
-        "id": 5
-      },
-      {
-        "image": "item_img2.jpg",
-        "itemName": "노블레 튼튼 도시락",
-        "underPrice": "20,000",
-        "price": "30,000",
-        "id": 6
-      },
-      {
-        "image": "item_img3.jpg",
-        "itemName": "QCY-T1",
-        "underPrice": "20,000",
-        "price": "30,000",
-        "id": 7
-      },
-      {
-        "image": "item_img2.jpg",
-        "itemName": "QCY-T1",
-        "underPrice": "20,000",
-        "price": "30,000",
-        "id": 8
-      }
+    },
+    {
+      "image": "item_img1.jpg",
+      "itemName": "다우니 퍼퓸 스노우",
+      "underPrice": "20,000",
+      "price": "30,000",
+      "id": 5
+    },
+    {
+      "image": "item_img2.jpg",
+      "itemName": "이어폰",
+      "underPrice": "20,000",
+      "price": "30,000",
+      "id": 6
+    },
+    {
+      "image": "item_img3.jpg",
+      "itemName": "도시롹",
+      "underPrice": "20,000",
+      "price": "30,000",
+      "id": 7
+    },
+    {
+      "image": "item_img2.jpg",
+      "itemName": "이어폰 그만..",
+      "underPrice": "20,000",
+      "price": "30,000",
+      "id": 8
+    }
   ]
 }
