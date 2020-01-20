@@ -3,8 +3,9 @@ import styled from "styled-components";
 const SlideContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
-  background: ${({ color }) => color};
+  height:100%;
+  background: url('./img/${({ color }) => color}') no-repeat;
+  background-size:cover;
   left: ${({ left }) => left * 100}%;
 `;
 

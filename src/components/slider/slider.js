@@ -27,15 +27,15 @@ const SlideComponent = () => {
   };
 
   return (
-    <Container topContainer a>
-      <Container middleContainer a>
+    <Container topContainer wsize="full" hsize="slide" display="df">
+      <Container middleContainer wsize="full" display="df">
         <button
           style={{ display: "inline-block", zIndex: "9" }}
           onClick={handlePrevMoveSlide}
         >
           prev
         </button>
-        <Container indiContainer a>
+        <Container indiContainer wsize="indi" hsize="indi" display="df">
           {SLIDE.map((indicator, idx) => {
             return (
               <Indicator
@@ -55,9 +55,22 @@ const SlideComponent = () => {
           next
         </button>
       </Container>
-      <Container left={slideMove} slideCon transition="0.5">
+      <Container
+        left={slideMove}
+        slideCon
+        transition="0.5"
+        wsize="full"
+        hsize="slide"
+      >
         {SLIDE.map((slide, idx) => {
-          return <Slide key={idx} color={slide} left={idx}></Slide>;
+          return (
+            <Slide
+              key={idx}
+              color={slide}
+              left={idx}
+              style={{ backgroundPositionX: "50%" }}
+            ></Slide>
+          );
         })}
       </Container>
     </Container>
