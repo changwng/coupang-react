@@ -3,7 +3,7 @@ import Container from '../container';
 import { Img } from '../input';
 import { Text, Ctext } from '../text';
 
-const Item = ({ image, underPrice, price, itemName, id }) => {
+const Item = ({ image, underPrice, price, itemName, id, reviewCounter }) => {
 	return (
 		<Container
 			item
@@ -31,7 +31,7 @@ const Item = ({ image, underPrice, price, itemName, id }) => {
 				{price} 원
 			</Text>
 			<Text size="tiny" color="review" style={{ margin: '5px 0 0' }}>
-				상품리뷰 (23)
+				상품리뷰 ({reviewCounter})
 			</Text>
 		</Container>
 	);

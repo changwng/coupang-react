@@ -27,17 +27,20 @@ const Items = ({ onItems }) => {
         borderTop: "1px solid #D5D5D5"
       }}
     >
-      {item.map(({ image, underPrice, price, itemName, id }, idx) => (
-        <Link to={`/itemDetail/${id}`} key={idx}>
-          <Item
-            image={image}
-            underPrice={underPrice}
-            price={price}
-            itemName={itemName}
-            id={id}
-          ></Item>
-        </Link>
-      ))}
+      {item.map(
+        ({ image, underPrice, price, itemName, reviewCounter, id }, idx) => (
+          <Link to={`/itemDetail/${id}`} key={idx}>
+            <Item
+              image={image}
+              underPrice={underPrice}
+              price={price}
+              itemName={itemName}
+              id={id}
+              reviewCounter={reviewCounter}
+            ></Item>
+          </Link>
+        )
+      )}
     </Container>
   );
 };
