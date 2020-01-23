@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const WIDTH_SIZES = {
 	header: '1088px',
@@ -19,12 +19,6 @@ const HEIGHT_SIZES = {
 	item: '300px',
   bigImg: '440px',
   smallImg : '75px'
-};
-const DISPLAY = {
-	df: 'flex',
-	dib: 'inline-block',
-	db: 'block',
-	dn: 'none'
 };
 
 export const Input = styled.input`

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Text, Ctext } from "../text";
 import Container from "../container";
 import { Link } from "react-router-dom";
 import Item from "./item";

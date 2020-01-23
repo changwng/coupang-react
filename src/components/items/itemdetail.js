@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Container from "../container";
-import { Img, Li, Button } from "../input";
+import { Img, Button } from "../input";
 import { Text } from "../text";
 import ItemList from "./itemList";
 import Selector from "./selector";
 
-const ItemDetail = ({ match }) => {
+const ItemDetail = ({
+  match: {
+    params: { id }
+  }
+}) => {
   const [item, setItem] = useState([]);
   const [selectOption, setOption] = useState([]);
 
-  let optionArr = [];
-
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch(
-        `http://localhost:8000/item/${match.params.id}`
-      );
+      const response = await fetch(`http://localhost:8000/item/${id}`);
       if (response.ok) {
         setItem(await response.json());
       }
     };
     fetchItems();
-  }, []);
+  }, [id]);
 
-  function handleChange(event) {
-    optionArr.push({ value: event.target.value });
-    setOption(optionArr);
-  }
+  const setOptions = value => {
+    setOption(value);
+    console.log(selectOption);
+  };
 
   return (
     <Container dispaly="df" style={{ flexDirection: "row" }}>
@@ -74,11 +74,8 @@ const ItemDetail = ({ match }) => {
         <Text size="large" color="review" style={{ marginBottom: "15px" }}>
           무료배송 오늘내 도착
         </Text>
-        <Selector handleChange={handleChange}/>
-        <ItemList
-          selectOption={selectOption}
-          handleChange={handleChange}
-        />
+        <Selector setOptions={setOptions} />
+        <ItemList selectOption={selectOption} />
         <Container
           display="df"
           wsize="full"

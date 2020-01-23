@@ -43,10 +43,10 @@ const Header = () => {
           flexDirection: "column"
         }}
       >
-        <from>
+        <form>
           <Input></Input>
           <Button>검색</Button>
-        </from>
+        </form>
         <ul
           style={{
             listStyle: "none",

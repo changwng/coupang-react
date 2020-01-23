@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Container from '../container';
 import Slide from './slide';
 import { SLIDE } from '../../slideConstants';
