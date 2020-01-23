@@ -5,8 +5,9 @@
       "itemName": "다우니 퍼퓸 스노우",
       "underPrice": "20,000",
       "price": "30,000",
-      "reviewCounter":"32",
-      "id": 1
+      "reviewCounter": "32",
+      "id": 1,
+      "option": ["하얀색", "검은색", "주황색"]
     }
   ]
 }

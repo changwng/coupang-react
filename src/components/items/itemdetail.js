@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Container from "../container";
 import { Img, Button } from "../input";
 import { Text } from "../text";
-import ItemList from "./itemList";
+import OptionList from "./optionList";
 import Selector from "./selector";
 
 const ItemDetail = ({
@@ -23,10 +23,33 @@ const ItemDetail = ({
     fetchItems();
   }, [id]);
 
-  const setOptions = value => {
-    setOption(value);
-    console.log(selectOption);
+  const handleChengeICounter = id => {
+    setOption(
+      selectOption.map(option =>
+        option.id === id
+          ? { ...option, quantityValue:(option.quantityValue+1) }
+          : option
+      )
+    );
   };
+
+  const handleChengeDCounter = id => {
+    setOption(
+      selectOption.map(option =>{
+        if(option.id === id && option.quantityValue > 1){
+          return(
+            { ...option, quantityValue:(option.quantityValue-1) }
+          )
+        }else{
+          return(option)
+        }}
+      )
+    );
+  };
+
+  const handleAddCart = () => {
+    console.log(selectOption)
+  }
 
   return (
     <Container dispaly="df" style={{ flexDirection: "row" }}>
@@ -74,15 +97,19 @@ const ItemDetail = ({
         <Text size="large" color="review" style={{ marginBottom: "15px" }}>
           무료배송 오늘내 도착
         </Text>
-        <Selector setOptions={setOptions} />
-        <ItemList selectOption={selectOption} />
+        <Selector setOption={setOption} selectOption={selectOption} item={item}/>
+        <OptionList
+          selectOption={selectOption}
+          handleChengeICounter={handleChengeICounter}
+          handleChengeDCounter={handleChengeDCounter}
+        />
         <Container
           display="df"
           wsize="full"
           style={{ justifyContent: "center", marginTop: "16px" }}
         >
           <Button style={{ margin: "0" }}>구매</Button>
-          <Button>장바구니</Button>
+          <Button onClick={handleAddCart}>장바구니</Button>
         </Container>
       </Container>
     </Container>

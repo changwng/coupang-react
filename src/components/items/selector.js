@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const Selector = ({ setOptions }) => {
-  const [Arr, setArr] = useState([]);
-  const [id, setId] = useState(0)
+const Selector = ({ setOption, selectOption, item:{option}}) => {
+  const [id, setId] = useState(0);
   const handleChange = event => {
-    const option = { value: event.target.value, id:id };
-    setArr([...Arr, option])
-    setId(id+1)
+    const option = {
+      id: id,
+      value: event.target.value,
+      quantityValue: 1
+    };
+    setOption([...selectOption, option]);
+    setId(id + 1);
   };
-
-  useEffect(()=>{
-    setOptions(Arr)
-  }, [Arr, setOptions])
-
+  let optionArr = option
 
   return (
     <select
@@ -28,15 +27,15 @@ const Selector = ({ setOptions }) => {
         padding: "16px"
       }}
     >
-      <option value="옵션선택" style={{ color: "#000" }}>
-        옵션선택
+      <option selected disabled style={{ color: "#ccc" }}>
+        ---옵션선택---
       </option>
-      <option value="검은색" style={{ color: "#000" }}>
+      {/* <option value="검은색" style={{ color: "#000" }}>
         검은색
       </option>
       <option value="하얀색" style={{ color: "#000" }}>
         하얀색
-      </option>
+      </option> */}
     </select>
   );
 };

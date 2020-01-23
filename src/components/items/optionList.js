@@ -1,19 +1,20 @@
 import React, { useState } from "react";
+import styled from 'styled-components'
 import Container from "../container";
 import { Li } from "../input";
 
-const ItemList = ({ selectOption }) => {
-  const [optionCounter, setoptionCounter] = useState(1);
-  const handleChengeICounter = e => {
-    setoptionCounter(optionCounter + 1);
-  };
-  const handleChengeDCounter = () => {
-    setoptionCounter(optionCounter - 1);
-  };
+const Ul = styled.ul`
+border:1px solid #eee;
+height:100px;
+padding:16px;
+overflow-y:auto;
+`
 
+const OptionList = ({ selectOption, optionCounter, handleChengeICounter, handleChengeDCounter, quantity }) => 
+{
   return (
-    <ul style={{ border: "1px solid #eee", height: "100px", padding: "16px" }}>
-      {selectOption.map(({ value }, idx) => (
+    <Ul selectOption>
+      {selectOption.map(({ value, id, quantityValue }, idx) => (
         <Li
           id={idx}
           key={idx}
@@ -34,11 +35,11 @@ const ItemList = ({ selectOption }) => {
             }}
           >
             <span style={{ width: "20px", heigth: "20px" }}>
-              {optionCounter}
+              {quantityValue}
             </span>
             <Container display="df" style={{ flexDirection: "column" }}>
               <button
-                onClick={handleChengeICounter}
+                onClick={()=>{handleChengeICounter(id)}}
                 style={{
                   width: "12px",
                   height: "8px",
@@ -48,7 +49,7 @@ const ItemList = ({ selectOption }) => {
                 }}
               ></button>
               <button
-                onClick={handleChengeDCounter}
+                onClick={()=>{handleChengeDCounter(id)}}
                 style={{
                   width: "12px",
                   height: "8px",
@@ -61,8 +62,8 @@ const ItemList = ({ selectOption }) => {
           </Container>
         </Li>
       ))}
-    </ul>
+    </Ul>
   );
 };
 
-export default ItemList;
+export default OptionList;
