@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Selector = ({ setOption, selectOption, item:{option}}) => {
+const Selector = ({ setOption, selectOption, optionValue}) => {
   const [id, setId] = useState(0);
+  const [options, setOptions] = useState([]);
+  const [optioned, setOptioned] = useState([]);
+
   const handleChange = event => {
     const option = {
       id: id,
@@ -11,7 +14,8 @@ const Selector = ({ setOption, selectOption, item:{option}}) => {
     setOption([...selectOption, option]);
     setId(id + 1);
   };
-  let optionArr = option
+  
+  
 
   return (
     <select
@@ -28,14 +32,19 @@ const Selector = ({ setOption, selectOption, item:{option}}) => {
       }}
     >
       <option selected disabled style={{ color: "#ccc" }}>
-        ---옵션선택---
+    ---옵션선택---
       </option>
-      {/* <option value="검은색" style={{ color: "#000" }}>
+      {optioned.map((options, idx) => (
+        <option key={idx} value={options} style={{ color: "#000" }}>
+          {options}
+        </option>
+      ))}
+      <option value="검은색" style={{ color: "#000" }}>
         검은색
       </option>
       <option value="하얀색" style={{ color: "#000" }}>
         하얀색
-      </option> */}
+      </option>
     </select>
   );
 };

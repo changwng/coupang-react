@@ -4,7 +4,8 @@ import { Img, Button } from "../input";
 import { Text } from "../text";
 import OptionList from "./optionList";
 import Selector from "./selector";
-
+import { Link } from "react-router-dom";
+import Item from "./item";
 const ItemDetail = ({
   match: {
     params: { id }
@@ -12,6 +13,9 @@ const ItemDetail = ({
 }) => {
   const [item, setItem] = useState([]);
   const [selectOption, setOption] = useState([]);
+  const [options, setOptions] = useState([]);
+
+  const { image, itemName, underPrice, price, reviewCounter, option } = item;
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -26,30 +30,27 @@ const ItemDetail = ({
   const handleChengeICounter = id => {
     setOption(
       selectOption.map(option =>
-        option.id === id
-          ? { ...option, quantityValue:(option.quantityValue+1) }
+        option.id === id 
+          ? { ...option, quantityValue: option.quantityValue + 1 }
           : option
       )
     );
   };
-
   const handleChengeDCounter = id => {
     setOption(
-      selectOption.map(option =>{
-        if(option.id === id && option.quantityValue > 1){
-          return(
-            { ...option, quantityValue:(option.quantityValue-1) }
-          )
-        }else{
-          return(option)
-        }}
-      )
+      selectOption.map(option => {
+        if (option.id === id && option.quantityValue > 1) {
+          return { ...option, quantityValue: option.quantityValue - 1 };
+        } else {
+          return option;
+        }
+      })
     );
   };
 
   const handleAddCart = () => {
-    console.log(selectOption)
-  }
+    console.log(selectOption);
+  };
 
   return (
     <Container dispaly="df" style={{ flexDirection: "row" }}>
@@ -58,9 +59,9 @@ const ItemDetail = ({
         style={{ flexDirection: "row", verticalAlign: "top" }}
       >
         <Container>
-          <Img wsize="smallImg" hsize="smallImg" background={item.image}></Img>
+          <Img wsize="smallImg" hsize="smallImg" background={image}></Img>
         </Container>
-        <Img wsize="bigImg" hsize="bigImg" background={item.image}></Img>
+        <Img wsize="bigImg" hsize="bigImg" background={image}></Img>
       </Container>
       <Container
         display="dif"
@@ -73,14 +74,14 @@ const ItemDetail = ({
         }}
       >
         <Text size="huge" bold>
-          {item.itemName}
+          {itemName}
         </Text>
         <Text
           size="large"
           color="review"
           style={{ borderBottom: "1px solid #D5D5D5", padding: "15px 0" }}
         >
-          상품리뷰 ({item.reviewCounter})
+          상품리뷰 ({reviewCounter})
         </Text>
         <Text
           size="huge"
@@ -92,12 +93,16 @@ const ItemDetail = ({
             marginBottom: "15px"
           }}
         >
-          {item.price}
+          {price}
         </Text>
         <Text size="large" color="review" style={{ marginBottom: "15px" }}>
           무료배송 오늘내 도착
         </Text>
-        <Selector setOption={setOption} selectOption={selectOption} item={item}/>
+        <Selector
+          optionValue={option}
+          setOption={setOption}
+          selectOption={selectOption}
+        />
         <OptionList
           selectOption={selectOption}
           handleChengeICounter={handleChengeICounter}

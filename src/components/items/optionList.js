@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 import Container from "../container";
 import { Li } from "../input";
 
 const Ul = styled.ul`
-border:1px solid #eee;
-height:100px;
-padding:16px;
-overflow-y:auto;
-`
+  border: 1px solid #eee;
+  height: 100px;
+  padding: 16px;
+  overflow-y: auto;
+`;
 
-const OptionList = ({ selectOption, optionCounter, handleChengeICounter, handleChengeDCounter, quantity }) => 
-{
+const OptionList = ({
+  selectOption,
+  optionCounter,
+  handleChengeICounter,
+  handleChengeDCounter,
+  quantity
+}) => {
   return (
     <Ul selectOption>
       {selectOption.map(({ value, id, quantityValue }, idx) => (
@@ -39,7 +44,9 @@ const OptionList = ({ selectOption, optionCounter, handleChengeICounter, handleC
             </span>
             <Container display="df" style={{ flexDirection: "column" }}>
               <button
-                onClick={()=>{handleChengeICounter(id)}}
+                onClick={() => {
+                  handleChengeICounter(id);
+                }}
                 style={{
                   width: "12px",
                   height: "8px",
@@ -49,7 +56,9 @@ const OptionList = ({ selectOption, optionCounter, handleChengeICounter, handleC
                 }}
               ></button>
               <button
-                onClick={()=>{handleChengeDCounter(id)}}
+                onClick={() => {
+                  handleChengeDCounter(id);
+                }}
                 style={{
                   width: "12px",
                   height: "8px",
