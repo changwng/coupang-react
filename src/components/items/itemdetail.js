@@ -2,20 +2,18 @@ import React, { useState, useEffect } from "react";
 import Container from "../container";
 import { Img, Button } from "../input";
 import { Text } from "../text";
-import OptionList from "./optionList";
-import Selector from "./selector";
-import { Link } from "react-router-dom";
-import Item from "./item";
+import OptionList from "./option/optionList";
+import Selector from "./option/selector";
+import OptionController from './option/optionController'
+
 const ItemDetail = ({
   match: {
     params: { id }
   }
 }) => {
   const [item, setItem] = useState([]);
-  const [selectOption, setOption] = useState([]);
-  const [options, setOptions] = useState([]);
 
-  const { image, itemName, underPrice, price, reviewCounter, option } = item;
+  const { image, itemName, price, reviewCounter, option } = item;
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -27,30 +25,6 @@ const ItemDetail = ({
     fetchItems();
   }, [id]);
 
-  const handleChengeICounter = id => {
-    setOption(
-      selectOption.map(option =>
-        option.id === id 
-          ? { ...option, quantityValue: option.quantityValue + 1 }
-          : option
-      )
-    );
-  };
-  const handleChengeDCounter = id => {
-    setOption(
-      selectOption.map(option => {
-        if (option.id === id && option.quantityValue > 1) {
-          return { ...option, quantityValue: option.quantityValue - 1 };
-        } else {
-          return option;
-        }
-      })
-    );
-  };
-
-  const handleAddCart = () => {
-    console.log(selectOption);
-  };
 
   return (
     <Container dispaly="df" style={{ flexDirection: "row" }}>
@@ -98,24 +72,7 @@ const ItemDetail = ({
         <Text size="large" color="review" style={{ marginBottom: "15px" }}>
           무료배송 오늘내 도착
         </Text>
-        <Selector
-          optionValue={option}
-          setOption={setOption}
-          selectOption={selectOption}
-        />
-        <OptionList
-          selectOption={selectOption}
-          handleChengeICounter={handleChengeICounter}
-          handleChengeDCounter={handleChengeDCounter}
-        />
-        <Container
-          display="df"
-          wsize="full"
-          style={{ justifyContent: "center", marginTop: "16px" }}
-        >
-          <Button style={{ margin: "0" }}>구매</Button>
-          <Button onClick={handleAddCart}>장바구니</Button>
-        </Container>
+          <OptionController optionValue={option} id={id}/>
       </Container>
     </Container>
   );
