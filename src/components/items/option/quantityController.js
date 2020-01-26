@@ -6,10 +6,11 @@ const Button = styled.button`
   ${({ xBox }) =>
     xBox &&
     css`
+      opacity: 0.3;
       width: 14px;
       height: 14px;
       border: none;
-      margin:1px 0 0 20px;
+      margin: 1px 0 0 20px;
       background: url("../img/imageasset.png");
       background-position: ${({ backPosition }) => backPosition};
     `}
@@ -31,7 +32,10 @@ const QuantityController = ({
   deletOption
 }) => {
   return (
-    <Container display="df" style={{ flexDirection: "row", alignItems:"center" }}>
+    <Container
+      display="df"
+      style={{ flexDirection: "row", alignItems: "center" }}
+    >
       <Container display="df" style={{ flexDirection: "column" }}>
         <Button
           quantityBtn
@@ -52,10 +56,9 @@ const QuantityController = ({
         backPosition={"-346px -327px"}
         xBox
         onClick={() => deletOption(id)}
-      >
-      </Button>
+      ></Button>
     </Container>
   );
 };
 
-export default React.memo(QuantityController);
+export default QuantityController;

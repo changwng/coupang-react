@@ -150,5 +150,8 @@ export const GlobalStyle = createGlobalStyle`
   strong {
     font-weight: bold;
   }
+  input,textarea,button:focus {
+        outline: none;
+   }
 
 `;

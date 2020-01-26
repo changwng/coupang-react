@@ -29,13 +29,26 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 75px;
-  height: 39px;
+  cursor: pointer;
+  ${({ topButton }) =>
+    topButton &&
+    css`
+      width: 75px;
+      height: 39px;
+      margin-left: 16px;
+    `}
+  ${({ subButton }) =>
+    subButton &&
+    css`
+      position: relative;
+      width: 150px;
+      height: 39px;
+      bottom: 0px;
+    `}
   background: #4285f4;
   border: none;
   color: #fff;
   vertical-align: top;
-  margin-left: 16px;
 `;
 
 export const Li = styled.li`

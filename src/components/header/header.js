@@ -45,7 +45,7 @@ const Header = () => {
       >
         <form>
           <Input></Input>
-          <Button>검색</Button>
+          <Button topButton>검색</Button>
         </form>
         <ul
           style={{
