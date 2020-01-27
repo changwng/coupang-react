@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "../container";
-import { Img, Button } from "../input";
+import { Img } from "../input";
 import { Text } from "../text";
-import OptionList from "./option/optionList";
-import Selector from "./option/selector";
 import OptionController from './option/optionController'
 
 const ItemDetail = ({

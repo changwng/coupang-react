@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const SIZES = {
 	mini: '10px',
-	tiny: '12px',
+	tiny: '13px',
 	small: '14px',
 	medium: '15px',
 	large: '16px',
@@ -27,6 +27,10 @@ export const Text = styled.p`
 		css`
 			font-weight: bold;
 		`}
+	${({message}) => message && css`
+	text-align:center;
+	padding:15px;
+	`}
 `;
 
 export const Ctext = styled.s`

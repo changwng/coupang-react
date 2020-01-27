@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Selector = ({
   setState,
@@ -28,7 +28,7 @@ const Selector = ({
 
   return (
     <select
-      value={this}
+      defaultValue="default"
       onChange={handleChange}
       name="selectBox"
       aria-label="옵션선택"
@@ -41,7 +41,7 @@ const Selector = ({
         padding: "16px"
       }}
     >
-      <option selected disabled style={{ color: "#ccc" }}>
+      <option value="default" disabled style={{ color: "#ccc" }}>
         ---옵션선택---
       </option>
       {(optionValue || []).map((options, idx) => (
