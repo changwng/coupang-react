@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '../container';
 import { Button, Input, Li, Logo } from '../input';
 import { Link } from 'react-router-dom';
+import Cart from './cart'
 
 const Header = () => {
 	return (
@@ -70,23 +71,7 @@ const Header = () => {
 						backgroundPosition: '-112px -36px'
 					}}
 				></span>
-				<span
-					style={{
-						width: '40px',
-						height: '35px',
-						background: `url('../img/icon.png')`,
-						marginRight: '20px',
-						backgroundPosition: '-112px 0px',
-						textAlign: 'right',
-						letterSpacing: '9px',
-						color: '#fff',
-						fontWeight: 'bold',
-						fontSize: '15px',
-						lineHeight: '19px'
-					}}
-				>
-					1
-				</span>
+				<Cart/>
 			</div>
 		</Container>
 	);

@@ -67,10 +67,11 @@ export const Li = styled.li`
 
 export const Logo = styled.h1`
 	margin-left: 40px;
-	width: 145px;
+	width: 109px;
 	height: 34px;
 	background: url('../img/LOGO.png') no-repeat;
-	background-size: 100%;
+	background-position-x:-38px;
+	background-size: cover;
 `;
 
 export const Img = styled.div`

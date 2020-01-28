@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Selector = ({
+  itemid,
   setState,
   setOption,
   selectOption,
@@ -11,6 +12,7 @@ const Selector = ({
 
   const handleChange = event => {
     const option = {
+      itemid:itemid,
       id: id,
       value: event.target.value,
       quantityValue: 1
