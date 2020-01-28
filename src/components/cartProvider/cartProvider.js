@@ -12,7 +12,6 @@ export const ApplicationContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log(cartValue);
   }, [cartValue]);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

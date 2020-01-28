@@ -23,7 +23,7 @@ const Popup = styled.div`
   justify-content: center;
 `;
 
-const OptionController = ({ optionValue, id:Itemid }) => {
+const OptionController = ({ optionValue, id: Itemid }) => {
   const { setCartValue, cartValue } = useApplicationContext();
   const [selectOption, setOption] = useState([]);
   const [popupState, setPopup] = useState(0);
@@ -48,9 +48,25 @@ const OptionController = ({ optionValue, id:Itemid }) => {
     }, 3000);
     saveOptions(selectOption);
   };
+
   const saveOptions = value => {
-    setCartValue([...cartValue, ...value]);
+    if (cartValue[0]) {
+      value.map(element => {
+        const id = element.itemid;
+        const valued = element.value;
+
+        cartValue.map(elem => {
+          if (elem.itemid === id && elem.value === valued) {
+            return console.log("내부 true");
+          }
+        });
+      });
+    } else {
+      console.log("외부 false")
+      setCartValue([...cartValue, ...value]);
+    }
   };
+  console.log(cartValue)
   const handleChengeICounter = id => {
     setOption(
       selectOption.map(optionValue =>
@@ -148,4 +164,4 @@ const OptionController = ({ optionValue, id:Itemid }) => {
   );
 };
 
-export default React.memo(OptionController);
+export default OptionController;
