@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useApplicationContext } from "../cartProvider/cartProvider";
 
 const Span = styled.span`
+  display: block;
   width: 40px;
   height: 35px;
   background: url("../img/icon.png");
