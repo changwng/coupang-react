@@ -16,6 +16,8 @@ const Items = ({ onItems }) => {
     fetchItems();
   }, []);
 
+  console.log(item);
+
   return (
     <Container
       wsize="header"

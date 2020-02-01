@@ -18,9 +18,9 @@ const Span = styled.span`
 `;
 
 const Cart = () => {
-  const { cartValue } = useApplicationContext();
+  const { customerOrder } = useApplicationContext();
 
-  return <Span>{cartValue.length}</Span>;
+  return <Span>{(customerOrder || []).length}</Span>;
 };
 
 export default Cart;

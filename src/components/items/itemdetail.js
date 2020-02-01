@@ -70,7 +70,7 @@ const ItemDetail = ({
         <Text size="large" color="review" style={{ marginBottom: "15px" }}>
           무료배송 오늘내 도착
         </Text>
-          <OptionController optionValue={option} id={id}/>
+          <OptionController optionValue={option} id={id} itemName={itemName} price={price}/>
       </Container>
     </Container>
   );

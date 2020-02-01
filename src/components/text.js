@@ -20,6 +20,7 @@ const COLOR = {
 };
 
 export const Text = styled.p`
+	display:inline-block;
 	font-size: ${({ size }) => SIZES[size] || SIZES.small};
 	color: ${({ color }) => COLOR[color] || COLOR.normal};
 	${({ bold }) =>

@@ -23,21 +23,22 @@ const Popup = styled.div`
   justify-content: center;
 `;
 
-const OptionController = ({ optionValue, id: Itemid }) => {
+const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
   const {
     setCartValue,
     cartValue,
     popupdiState,
-    setdiPopup
+    setdiPopup,
+    handleUpdateCart,
+    fetchOptionList,
+    customerOrder
   } = useApplicationContext();
+
   const [selectOption, setOption] = useState([]);
   const [popupState, setPopup] = useState(0);
 
-  const [testState, setTestState] = useState(0);
-
-  const [state, setState] = useState(0);
+  const [cartState, setCartState] = useState(0);
   const disalbledControll = useRef();
-
   const handleAddCart = () => {
     handleCartValue();
     setdiPopup(1);
@@ -61,23 +62,26 @@ const OptionController = ({ optionValue, id: Itemid }) => {
     }
   };
 
-  const handleCartValue = () => (selectOption[0] ? setState(1) : setState(0));
+  const handleCartValue = () => (selectOption[0] ? setCartState(1) : setCartState(0));
 
   useEffect(() => {
     disableControler();
   }, [popupdiState]);
 
   const saveOptions = value => {
-    value.map(element => {
+    const newCartArr = []
+     value.forEach( element => {
       const id = element.itemid;
       const valued = element.value;
-      let AA = cartValue.findIndex(i => i.itemid === id && i.value === valued);
-      if (AA === -1) {
-        setCartValue(cartValue => [...cartValue, element]);
+      let ExistenceStatus = customerOrder.findIndex(i => i.itemid === id && i.value === valued);
+       if (ExistenceStatus === -1) {
+        newCartArr.push(element)
+        console.log("장바구니 추가 실행");
       } else {
-        setState(3);
+        setCartState(3);
       }
     });
+    handleUpdateCart(newCartArr)
   };
 
   const handleChengeICounter = id => {
@@ -111,8 +115,8 @@ const OptionController = ({ optionValue, id: Itemid }) => {
     setOption(newOptionList);
   };
 
-  const rendering = state => {
-    switch (state) {
+  const rendering = cartState => {
+    switch (cartState) {
       case 0: {
         return (
           <Text size="tiny" message style={{ marginTop: "-10px" }}>
@@ -151,11 +155,12 @@ const OptionController = ({ optionValue, id: Itemid }) => {
     <Container>
       <Selector
         itemid={Itemid}
-        setState={setState}
         handleChengeICounter={handleChengeICounter}
         optionValue={optionValue}
         setOption={setOption}
         selectOption={selectOption}
+        itemName={itemName}
+        price={price}
       />
       <OptionList
         deletOption={deletOption}
@@ -181,7 +186,7 @@ const OptionController = ({ optionValue, id: Itemid }) => {
             display={popupdiState}
             backPosition={"-217px 0"}
           >
-            {rendering(state)}
+            {rendering(cartState)}
           </Popup>
           <Button ref={disalbledControll} topButton onClick={handleAddCart}>
             장바구니

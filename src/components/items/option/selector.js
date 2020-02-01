@@ -2,16 +2,19 @@ import React, { useState } from "react";
 
 const Selector = ({
   itemid,
-  setState,
   setOption,
   selectOption,
   optionValue,
-  handleChengeICounter
+  handleChengeICounter,
+  itemName,
+  price
 }) => {
   const [id, setId] = useState(0);
 
   const handleChange = event => {
     const option = {
+      price:price,
+      itemName:itemName,
       itemid:itemid,
       id: id,
       value: event.target.value,

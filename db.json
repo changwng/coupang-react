@@ -7,7 +7,11 @@
       "price": "30,000",
       "reviewCounter": "32",
       "id": 1,
-      "option": ["하얀색", "검정색", "노란색"]
+      "option": [
+        "하얀색",
+        "검정색",
+        "노란색"
+      ]
     },
     {
       "image": "item_img2.jpg",
@@ -16,7 +20,10 @@
       "price": "30,000",
       "reviewCounter": "32",
       "id": 2,
-      "option": ["하얀색", "검은색"]
+      "option": [
+        "하얀색",
+        "검은색"
+      ]
     },
     {
       "image": "item_img3.jpg",
@@ -25,7 +32,10 @@
       "price": "30,000",
       "reviewCounter": "32",
       "id": 3,
-      "option": ["핑크색", "주황색"]
+      "option": [
+        "핑크색",
+        "주황색"
+      ]
     },
     {
       "image": "item_img1.jpg",
@@ -34,7 +44,50 @@
       "price": "30,000",
       "reviewCounter": "32",
       "id": 4,
-      "option": ["똥향", "가래향", "아오몰라이씨"]
+      "option": [
+        "똥향",
+        "가래향",
+        "아오몰라이씨"
+      ]
+    }
+  ],
+  "customer": [
+    {
+      "customerOrder": [
+        {
+          "price": "30,000",
+          "itemName": "QCY-T1",
+          "itemid": "2",
+          "id": 0,
+          "value": "검은색",
+          "quantityValue": 1
+        },
+        {
+          "price": "30,000",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "1",
+          "id": 0,
+          "value": "하얀색",
+          "quantityValue": 1
+        },
+        {
+          "price": "30,000",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "1",
+          "id": 1,
+          "value": "검정색",
+          "quantityValue": 1
+        },
+        {
+          "price": "30,000",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "1",
+          "id": 2,
+          "value": "노란색",
+          "quantityValue": 1
+        }
+      ],
+      "id": 19428
     }
   ]
 }

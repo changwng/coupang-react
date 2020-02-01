@@ -21,6 +21,7 @@ const Item = ({ image, underPrice, price, itemName, id, reviewCounter }) => {
 				hsize="img"
 				background={image}
 			></Img>
+			<Container display="df" style={{flexDirection:"column"}}>
 			<Text size="huge" bold style={{ margin: '10px 0 5px 0' }}>
 				{itemName}
 			</Text>
@@ -33,6 +34,7 @@ const Item = ({ image, underPrice, price, itemName, id, reviewCounter }) => {
 			<Text size="tiny" color="review" style={{ margin: '5px 0 0' }}>
 				상품리뷰 ({reviewCounter})
 			</Text>
+			</Container>
 		</Container>
 	);
 };
