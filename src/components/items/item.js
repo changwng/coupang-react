@@ -4,6 +4,11 @@ import { Img } from '../input';
 import { Text, Ctext } from '../text';
 
 const Item = ({ image, underPrice, price, itemName, id, reviewCounter }) => {
+	const Price = price;
+	const quantity = underPrice;
+	const newPrice = Price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	const newUnderPrice = underPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 	return (
 		<Container
 			item
@@ -26,10 +31,10 @@ const Item = ({ image, underPrice, price, itemName, id, reviewCounter }) => {
 				{itemName}
 			</Text>
 			<Ctext size="mini" color="underPrice" style={{ margin: '0' }}>
-				{underPrice} 원
+				{newUnderPrice} 원
 			</Ctext>
 			<Text size="medium" color="realPrice" bold style={{ margin: '0' }}>
-				{price} 원
+				{newPrice} 원
 			</Text>
 			<Text size="tiny" color="review" style={{ margin: '5px 0 0' }}>
 				상품리뷰 ({reviewCounter})

@@ -43,7 +43,7 @@ const Selector = ({
         height: "50px",
         color: "#ccc",
         marginBottom: "15px",
-        padding: "16px"
+        padding: "15px"
       }}
     >
       <option value="default" disabled style={{ color: "#ccc" }}>

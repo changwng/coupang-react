@@ -10,6 +10,7 @@ const ItemDetail = ({
   }
 }) => {
   const [item, setItem] = useState([]);
+  const [priced, setPrice] = useState("0");
 
   const { image, itemName, price, reviewCounter, option } = item;
 
@@ -22,7 +23,12 @@ const ItemDetail = ({
     };
     fetchItems();
   }, [id]);
-
+  let newPrice
+  console.log(item)
+  useEffect(()=>{
+    const price = item.price
+    setPrice((price || "10").replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+  },[item])
 
   return (
     <Container dispaly="df" style={{ flexDirection: "row" }}>
@@ -65,7 +71,7 @@ const ItemDetail = ({
             marginBottom: "15px"
           }}
         >
-          {price}
+          {priced}
         </Text>
         <Text size="large" color="review" style={{ marginBottom: "15px" }}>
           무료배송 오늘내 도착

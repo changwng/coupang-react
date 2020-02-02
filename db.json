@@ -3,8 +3,8 @@
     {
       "image": "item_img1.jpg",
       "itemName": "다우니 퍼퓸 스노우",
-      "underPrice": "20,000",
-      "price": "30,000",
+      "underPrice": "30000",
+      "price": "10000",
       "reviewCounter": "32",
       "id": 1,
       "option": [
@@ -16,8 +16,8 @@
     {
       "image": "item_img2.jpg",
       "itemName": "QCY-T1",
-      "underPrice": "20,000",
-      "price": "30,000",
+      "underPrice": "36500",
+      "price": "21500",
       "reviewCounter": "32",
       "id": 2,
       "option": [
@@ -28,8 +28,8 @@
     {
       "image": "item_img3.jpg",
       "itemName": "도시락",
-      "underPrice": "20,000",
-      "price": "30,000",
+      "underPrice": "30000",
+      "price": "9000",
       "reviewCounter": "32",
       "id": 3,
       "option": [
@@ -40,8 +40,8 @@
     {
       "image": "item_img1.jpg",
       "itemName": "다우니 퍼퓸 스노우",
-      "underPrice": "20,000",
-      "price": "30,000",
+      "underPrice": "30000",
+      "price": "16500",
       "reviewCounter": "32",
       "id": 4,
       "option": [
@@ -55,35 +55,43 @@
     {
       "customerOrder": [
         {
-          "price": "30,000",
+          "price": "30000",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "4",
+          "id": 0,
+          "value": "똥향",
+          "quantityValue": 2
+        },
+        {
+          "price": "30000",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "4",
+          "id": 1,
+          "value": "가래향",
+          "quantityValue": 5
+        },
+        {
+          "price": "30000",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "4",
+          "id": 2,
+          "value": "아오몰라이씨",
+          "quantityValue": 4
+        },
+        {
+          "price": "30000",
+          "itemName": "도시락",
+          "itemid": "3",
+          "id": 0,
+          "value": "핑크색",
+          "quantityValue": 1
+        },
+        {
+          "price": "30000",
           "itemName": "QCY-T1",
           "itemid": "2",
           "id": 0,
           "value": "검은색",
-          "quantityValue": 1
-        },
-        {
-          "price": "30,000",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "1",
-          "id": 0,
-          "value": "하얀색",
-          "quantityValue": 1
-        },
-        {
-          "price": "30,000",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "1",
-          "id": 1,
-          "value": "검정색",
-          "quantityValue": 1
-        },
-        {
-          "price": "30,000",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "1",
-          "id": 2,
-          "value": "노란색",
           "quantityValue": 1
         }
       ],

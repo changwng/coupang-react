@@ -5,9 +5,6 @@ export const GlobalStyle = createGlobalStyle`
       width:100%;
       height:100%;
   }
-  .fuckyouscroll::-webkit-scrollbar {
-  display: none; 
-  }
   html,
   body,
   div,
@@ -139,12 +136,6 @@ export const GlobalStyle = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
-  }
-  select {
-    border-style: none;
-    background: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
   }
   b,
   strong {
