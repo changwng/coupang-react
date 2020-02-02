@@ -35,6 +35,14 @@ export const ApplicationContextProvider = ({ children }) => {
     fetchItems();
   }
 
+  const deleteCart = async id => {
+    const response = await fetch(`http://localhost:8000/customer/19428/${id}`, {
+      method: "DELETE"
+    });
+    if (response.ok) {
+    }
+  };
+
   const value = {
     popupdiState,
     setdiPopup,
@@ -42,7 +50,8 @@ export const ApplicationContextProvider = ({ children }) => {
     setCartValue,
     handleUpdateCart,
     fetchOptionList,
-    customerOrder
+    customerOrder,
+    deleteCart
   };
 
   useEffect(() => {
