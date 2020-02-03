@@ -8,11 +8,14 @@ import { useApplicationContext } from "../cartProvider/cartProvider";
 
 const CartPage = () => {
   const [cartList, setCartList] = useState([]);
-  const { customerOrder, deleteCart } = useApplicationContext();
+  const { customerOrder, deleteCart, handleChangeCart } = useApplicationContext();
 
   const deleteCartList = (e) => {
-    const target = e.target
-    console.log(target)
+    const target = e.target.parentNode.parentNode.parentNode.parentNode.id
+    const clearOptionList = customerOrder.filter(function(element){
+      return element.id != parseInt(target)
+    })
+    handleChangeCart(clearOptionList)
   }
 
   return (
@@ -92,7 +95,7 @@ const CartPage = () => {
           const totalPrice = resultPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
           return (
-            <tr key={idx} style={{ borderBottom: "1px solid #DDD" }}>
+            <tr id={item.id} key={idx} style={{ borderBottom: "1px solid #DDD" }}>
               <td
                 style={{
                   width: "20px",

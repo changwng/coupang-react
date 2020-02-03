@@ -24,7 +24,6 @@ const ItemDetail = ({
     fetchItems();
   }, [id]);
   let newPrice
-  console.log(item)
   useEffect(()=>{
     const price = item.price
     setPrice((price || "10").replace(/\B(?=(\d{3})+(?!\d))/g, ','));

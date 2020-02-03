@@ -31,7 +31,8 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
     setdiPopup,
     handleUpdateCart,
     fetchOptionList,
-    customerOrder
+    customerOrder,
+    optionCounter
   } = useApplicationContext();
 
   const [selectOption, setOption] = useState([]);
@@ -62,26 +63,41 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
     }
   };
 
-  const handleCartValue = () => (selectOption[0] ? setCartState(1) : setCartState(0));
+  const handleCartValue = () =>
+    selectOption[0] ? setCartState(1) : setCartState(0);
 
   useEffect(() => {
     disableControler();
   }, [popupdiState]);
 
   const saveOptions = value => {
-    const newCartArr = []
-     value.forEach( element => {
+    const newCartArr = [];
+    let counter = (customerOrder || []).length
+    value.forEach(element => {
       const id = element.itemid;
       const valued = element.value;
-      let ExistenceStatus = customerOrder.findIndex(i => i.itemid === id && i.value === valued);
-       if (ExistenceStatus === -1) {
-        newCartArr.push(element)
-        console.log("장바구니 추가 실행");
+      let ExistenceStatus = customerOrder.findIndex(
+        i => i.itemid === id && i.value === valued
+      );
+      if (ExistenceStatus === -1) {
+        const { price, itemName, itemid, value, quantityValue } = element;
+        counter++
+        console.log(counter)
+        const item = {
+          id:counter,
+          price,
+          itemName,
+          itemid,
+          value,
+          quantityValue
+        };
+
+        newCartArr.push(item);
       } else {
         setCartState(3);
       }
     });
-    handleUpdateCart(newCartArr)
+    handleUpdateCart(newCartArr);
   };
 
   const handleChengeICounter = id => {

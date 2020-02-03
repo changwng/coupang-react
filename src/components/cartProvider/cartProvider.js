@@ -5,10 +5,10 @@ const Context = createContext(); //createContext 선언
 
 export const ApplicationContextProvider = ({ children }) => {
   const [cartValue, setCartValue] = useState([]);
-  const [prev, setPrev] = useState([])
+  const [prev, setPrev] = useState([]);
   const [popupdiState, setdiPopup] = useState(0);
 
-  const {customerOrder} = prev
+  const { customerOrder, optionCounter } = prev;
 
   const handleUpdateCart = async element => {
     const response = await fetch(`http://localhost:8000/customer/19428`, {
@@ -17,11 +17,26 @@ export const ApplicationContextProvider = ({ children }) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        customerOrder:[...customerOrder, ...element]
+        customerOrder: [...customerOrder, ...element]
       })
     });
-    if(response.ok){
-      fetchOptionList()
+    if (response.ok) {
+      fetchOptionList();
+    }
+  };
+
+  const handleChangeCart = async element => {
+    const response = await fetch(`http://localhost:8000/customer/19428`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        customerOrder: [...element]
+      })
+    });
+    if (response.ok) {
+      fetchOptionList();
     }
   };
 
@@ -33,7 +48,7 @@ export const ApplicationContextProvider = ({ children }) => {
       }
     };
     fetchItems();
-  }
+  };
 
   const deleteCart = async id => {
     const response = await fetch(`http://localhost:8000/customer/19428/${id}`, {
@@ -51,11 +66,12 @@ export const ApplicationContextProvider = ({ children }) => {
     handleUpdateCart,
     fetchOptionList,
     customerOrder,
-    deleteCart
+    deleteCart,
+    handleChangeCart
   };
 
   useEffect(() => {
-    fetchOptionList()
+    fetchOptionList();
   }, []);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
