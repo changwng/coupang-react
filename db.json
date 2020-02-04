@@ -55,15 +55,31 @@
     {
       "customerOrder": [
         {
-          "id": 2,
-          "price": "10000",
+          "id": 1,
+          "price": "16500",
           "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "1",
-          "value": "노란색",
+          "itemid": "4",
+          "value": "똥향",
+          "quantityValue": 1
+        },
+        {
+          "id": 2,
+          "price": "16500",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "4",
+          "value": "가래향",
           "quantityValue": 1
         },
         {
           "id": 3,
+          "price": "10000",
+          "itemName": "다우니 퍼퓸 스노우",
+          "itemid": "1",
+          "value": "검정색",
+          "quantityValue": 1
+        },
+        {
+          "id": 4,
           "price": "10000",
           "itemName": "다우니 퍼퓸 스노우",
           "itemid": "1",
@@ -71,11 +87,11 @@
           "quantityValue": 1
         },
         {
-          "id": 3,
-          "price": "16500",
+          "id": 5,
+          "price": "10000",
           "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "4",
-          "value": "똥향",
+          "itemid": "1",
+          "value": "노란색",
           "quantityValue": 1
         }
       ],

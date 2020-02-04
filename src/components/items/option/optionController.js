@@ -70,31 +70,60 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
     disableControler();
   }, [popupdiState]);
 
+  let defaultCounter = 1;
+  let CounterTester = (customerOrder || []).length;
+  let counter = (customerOrder || []).map(element => element.id);
+  let maxIdCounter = Math.max.apply(null, counter); //id중 가장 큰 값 추출
+  let plusIdCounter = maxIdCounter + 1;
+
+
+  console.log(CounterTester);
   const saveOptions = value => {
-    const newCartArr = [];
-    let counter = (customerOrder || []).length
+    //배열이 넘어옴
+    const newCartArr = []; //새로운 배열 준비
+
+    //db.json에 배열의 갯수를 담음
+
+    //배열중 가장 큰 값 가져오기
+
     value.forEach(element => {
+      //배열을 돌면서 검사함
       const id = element.itemid;
       const valued = element.value;
       let ExistenceStatus = customerOrder.findIndex(
         i => i.itemid === id && i.value === valued
       );
       if (ExistenceStatus === -1) {
+        //만약 기존배열 안에 검사대상이 없다면
         const { price, itemName, itemid, value, quantityValue } = element;
-        counter++
-        console.log(counter)
-        const item = {
-          id:counter,
-          price,
-          itemName,
-          itemid,
-          value,
-          quantityValue
-        };
+        if (CounterTester === 0) {
+          const item = {
+            id: defaultCounter,
+            price,
+            itemName,
+            itemid,
+            value,
+            quantityValue
+          };
+          defaultCounter++;
+          newCartArr.push(item); //새로운 배열에 push 함.
+        } else {
+           //배열안에 아이디 추출
+          const item = {
+            id: plusIdCounter, // 배열+1 한 값을 아이디로 줌.
+            price,
+            itemName,
+            itemid,
+            value,
+            quantityValue
+          };
+          plusIdCounter++;
+          newCartArr.push(item);
 
-        newCartArr.push(item);
+          console.log(newCartArr, "실행");
+        }
       } else {
-        setCartState(3);
+        setCartState(3); //존재한다면 이미 추가되었다는 메세지 출력
       }
     });
     handleUpdateCart(newCartArr);
