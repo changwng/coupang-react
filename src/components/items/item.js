@@ -27,7 +27,7 @@ const Item = ({ image, underPrice, price, itemName, id, reviewCounter }) => {
 				background={image}
 			></Img>
 			<Container display="df" style={{flexDirection:"column"}}>
-			<Text size="huge" bold style={{ margin: '10px 0 5px 0' }}>
+			<Text size="huge" bold style={{ margin: '10px 0 5px 0',overflow:"hidden", whiteSpace:"nowrap", textOverflow:"ellipsis", width:"200px"}}>
 				{itemName}
 			</Text>
 			<Ctext size="mini" color="underPrice" style={{ margin: '0' }}>

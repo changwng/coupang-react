@@ -1,20 +1,20 @@
 {
   "item": [
     {
-      "image": "item_img1.jpg",
-      "itemName": "다우니 퍼퓸 스노우",
-      "underPrice": "30000",
-      "price": "10000",
+      "image": "itemImg/item_img4.jpg",
+      "itemName": "이매지나리움 아트 아이언맨3 마크38 이고르 버스트 헬멧 피규어",
+      "underPrice": "739140",
+      "price": "643050",
       "reviewCounter": "32",
       "id": 1,
       "option": [
-        "하얀색",
-        "검정색",
-        "노란색"
+        "블루",
+        "레드",
+        "블랙"
       ]
     },
     {
-      "image": "item_img2.jpg",
+      "image": "itemImg/item_img2.jpg",
       "itemName": "QCY-T1",
       "underPrice": "36500",
       "price": "21500",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "image": "item_img3.jpg",
+      "image": "itemImg/item_img3.jpg",
       "itemName": "도시락",
       "underPrice": "30000",
       "price": "9000",
@@ -38,16 +38,112 @@
       ]
     },
     {
-      "image": "item_img1.jpg",
+      "image": "itemImg/item_img1.jpg",
       "itemName": "다우니 퍼퓸 스노우",
       "underPrice": "30000",
       "price": "16500",
       "reviewCounter": "32",
       "id": 4,
       "option": [
-        "똥향",
-        "가래향",
-        "아오몰라이씨"
+        "라벤더",
+        "로즈"
+      ]
+    },
+    {
+      "image": "itemImg/item_img5.jpg",
+      "itemName": "샤바스 스칸디나 스파테라피 이동식 반신욕조 다용도중형",
+      "underPrice": "25900",
+      "price": "19900",
+      "reviewCounter": "32",
+      "id": 5,
+      "option": [
+        "화이트",
+        "블랙"
+      ]
+    },
+    {
+      "image": "itemImg/item_img6.jpg",
+      "itemName": "깨끗한나라 3겹 데코 순수 프리미엄 천연펄프 롤화장지 30m",
+      "underPrice": "17180",
+      "price": "16500",
+      "reviewCounter": "32",
+      "id": 6,
+      "option": [
+        "30롤 x 1개",
+        "30롤 x 2개"
+      ]
+    },
+    {
+      "image": "itemImg/item_img7.jpg",
+      "itemName": "유천냉면 물냉면5인세트",
+      "underPrice": "35000",
+      "price": "31500",
+      "reviewCounter": "32",
+      "id": 7,
+      "option": [
+        "5개 세트",
+        "10개 세트"
+      ]
+    },
+    {
+      "image": "itemImg/item_img8.jpg",
+      "itemName": "라로슈포제 에빠끌라 듀오 DUO (＋) 40ml X 2",
+      "underPrice": "30000",
+      "price": "28800",
+      "reviewCounter": "32",
+      "id": 8,
+      "option": [
+        "1개 묶음",
+        "5개 묶음"
+      ]
+    },
+    {
+      "image": "itemImg/item_img9.jpg",
+      "itemName": "미스터퍼펙트 실리콘 변기솔",
+      "underPrice": "10000",
+      "price": "7900",
+      "reviewCounter": "32",
+      "id": 9,
+      "option": [
+        "핑크",
+        "스카이블루"
+      ]
+    },
+    {
+      "image": "itemImg/item_img10.jpg",
+      "itemName": "깨끗한나라 페퍼민트 물티슈 캡형",
+      "underPrice": "12030",
+      "price": "11429",
+      "reviewCounter": "32",
+      "id": 10,
+      "option": [
+        "70매 10팩",
+        "70매 20팩",
+        "70매 32팩"
+      ]
+    },
+    {
+      "image": "itemImg/item_img11.jpg",
+      "itemName": "뉴해피크린 음식물처리기분쇄기디스포저DW-253A(B)",
+      "underPrice": "458000",
+      "price": "429000",
+      "reviewCounter": "32",
+      "id": 11,
+      "option": [
+        "가정용",
+        "업소용"
+      ]
+    },
+    {
+      "image": "itemImg/item_img12.jpg",
+      "itemName": "깨끗한나라 데일리 천연펄프 키친타올 200매",
+      "underPrice": "20000",
+      "price": "15050",
+      "reviewCounter": "32",
+      "id": 12,
+      "option": [
+        "12개입 1개",
+        "24개입 1개"
       ]
     }
   ],
@@ -56,42 +152,50 @@
       "customerOrder": [
         {
           "id": 1,
-          "price": "16500",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "4",
-          "value": "똥향",
+          "price": "643050",
+          "itemName": "이매지나리움 아트 아이언맨3 마크38 이고르 버스트 헬멧 피규어",
+          "itemid": "1",
+          "value": "블루",
           "quantityValue": 1
         },
         {
           "id": 2,
           "price": "16500",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "4",
-          "value": "가래향",
+          "itemName": "깨끗한나라 3겹 데코 순수 프리미엄 천연펄프 롤화장지 30m",
+          "itemid": "6",
+          "value": "30롤 x 2개",
           "quantityValue": 1
         },
         {
           "id": 3,
-          "price": "10000",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "1",
-          "value": "검정색",
+          "price": "28800",
+          "itemName": "라로슈포제 에빠끌라 듀오 DUO (＋) 40ml X 2",
+          "itemid": "8",
+          "value": "1개 묶음",
           "quantityValue": 1
         },
         {
           "id": 4,
-          "price": "10000",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "1",
-          "value": "하얀색",
+          "price": "28800",
+          "itemName": "라로슈포제 에빠끌라 듀오 DUO (＋) 40ml X 2",
+          "itemid": "8",
+          "value": "5개 묶음",
           "quantityValue": 1
         },
         {
           "id": 5,
-          "price": "10000",
-          "itemName": "다우니 퍼퓸 스노우",
-          "itemid": "1",
-          "value": "노란색",
+          "price": "7900",
+          "itemName": "미스터퍼펙트 실리콘 변기솔",
+          "itemid": "9",
+          "value": "스카이블루",
+          "quantityValue": 1
+        },
+        {
+          "id": 6,
+          "price": "7900",
+          "itemName": "미스터퍼펙트 실리콘 변기솔",
+          "itemid": "9",
+          "value": "핑크",
           "quantityValue": 1
         }
       ],

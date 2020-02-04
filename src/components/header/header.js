@@ -34,43 +34,54 @@ const Header = () => {
           카테고리
         </span>
       </Container>
-      <Link to="/">
-        <Logo></Logo>
-      </Link>
-      <div
-        style={{
-          marginLeft: "50px",
-          display: "flex",
-          flexDirection: "column"
-        }}
-      >
-        <form>
-          <Input></Input>
-          <Button topButton>검색</Button>
-        </form>
-        <ul
-          style={{
-            listStyle: "none",
-            display: "flex",
-            padding: "0",
-            margin: "10px 0 0 0"
-          }}
-        >
-          <Li>식품</Li>
-          <Li>가전</Li>
-          <Li>미용</Li>
-        </ul>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex" }}>
+          <Link to="/">
+            <Logo></Logo>
+          </Link>
+          <div
+            style={{
+              marginLeft: "30px",
+              display: "flex",
+              flexDirection: "column"
+            }}
+          >
+            <form>
+              <Input></Input>
+              <Button topButton>검색</Button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <ul
+            style={{
+              listStyle: "none",
+              display: "flex",
+              padding: "0",
+              margin: "20px 0 0 43px"
+            }}
+          >
+            <Li>식품</Li>
+            <Li>가전</Li>
+            <Li>미용</Li>
+          </ul>
+        </div>
       </div>
+
       <div style={{ display: "flex", marginLeft: "43px" }}>
-        <span
-          style={{
-            width: "28px",
-            height: "35px",
-            background: `url('../img/icon.png')`,
-            margin: "2px 20px 0 0",
-            backgroundPosition: "-112px -36px"
-          }}
-        ></span>
+        <div style={{marginRight:"20px"}}>
+          <span
+            style={{
+              display:"block",
+              width: "29px",
+              height: "31px",
+              background: `url('../img/icon.png')`,
+              margin: "2px 17px 10px 17px",
+              backgroundPosition: "-112px -36px"
+            }}
+          ></span>
+          <p>마이유팡</p>
+        </div>
         <Link to={"/cartpage"} style={{ textDecoration: "none" }}>
           <Cart />
         </Link>

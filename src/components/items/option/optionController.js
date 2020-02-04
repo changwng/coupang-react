@@ -5,6 +5,7 @@ import Selector from "./selector";
 import OptionList from "./optionList";
 import { Button } from "../../input";
 import { Text } from "../../text";
+import { Link } from "react-router-dom";
 import { useApplicationContext } from "../../cartProvider/cartProvider";
 
 const Popup = styled.div`
@@ -182,7 +183,10 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
             <Text size="tiny" message>
               상품이 장바구니에 추가되었습니다.
             </Text>
+            <Link to={"/cartpage"} style={{ textDecoration: "none" }}>
             <Button subButton>장바구니 바로가기</Button>
+            </Link>
+            
           </div>
         );
       }

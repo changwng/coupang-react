@@ -24,7 +24,7 @@ const HEIGHT_SIZES = {
 export const Input = styled.input`
 	width: 445px;
 	height: 35px;
-	border: 1px solid #4285f4;
+	border: 2px solid #4285f4;
 	vertical-align: top;
 `;
 
@@ -67,10 +67,10 @@ export const Li = styled.li`
 
 export const Logo = styled.h1`
 	margin-left: 40px;
-	width: 109px;
-	height: 34px;
+	width: 135px;
+	height: 43px;
 	background: url('../img/LOGO.png') no-repeat;
-	background-position-x:-38px;
+	background-position-x:-48px;
 	background-size: cover;
 `;
 

@@ -15,12 +15,18 @@ const Span = styled.span`
   font-weight: bold;
   font-size: 15px;
   line-height: 19px;
+  margin:0 15px 8px 15px;
 `;
 
 const Cart = () => {
   const { customerOrder } = useApplicationContext();
 
-  return <Span>{(customerOrder || []).length}</Span>;
+  return (
+    <div>
+      <Span>{(customerOrder || []).length}</Span>
+      <p>장바구니</p>
+    </div>
+  );
 };
 
 export default Cart;
