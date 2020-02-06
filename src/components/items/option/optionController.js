@@ -95,10 +95,10 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
         i => i.itemid === id && i.value === valued
       );
       if (ExistenceStatus === -1) {
-        //만약 기존배열 안에 검사대상이 없다면
         const { price, itemName, itemid, value, quantityValue } = element;
         if (CounterTester === 0) {
           const item = {
+            checked:false,
             id: defaultCounter,
             price,
             itemName,
@@ -107,11 +107,11 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
             quantityValue
           };
           defaultCounter++;
-          newCartArr.push(item); //새로운 배열에 push 함.
+          newCartArr.push(item);
         } else {
-           //배열안에 아이디 추출
           const item = {
-            id: plusIdCounter, // 배열+1 한 값을 아이디로 줌.
+            checked:false,
+            id: plusIdCounter,
             price,
             itemName,
             itemid,
@@ -124,7 +124,7 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
           console.log(newCartArr, "실행");
         }
       } else {
-        setCartState(3); //존재한다면 이미 추가되었다는 메세지 출력
+        setCartState(3);
       }
     });
     handleUpdateCart(newCartArr);

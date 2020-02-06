@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Container from "../container";
-import { Logo } from "../input";
+import { Logo, Button } from "../input";
 import { Text } from "../text";
 import { Link } from "react-router-dom";
 import { useApplicationContext } from "../cartProvider/cartProvider";
@@ -14,11 +14,61 @@ const CartPage = () => {
   } = useApplicationContext();
 
   const deleteCartList = e => {
-    const target = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+    const target =
+      e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
     const clearOptionList = customerOrder.filter(function(element) {
       return element.id != parseInt(target);
     });
     handleChangeCart(clearOptionList);
+  };
+
+  const handleChecked = e => {
+    const checkedBoxId = e.target.parentNode.parentNode.id;
+    const IndexNumber = customerOrder.findIndex(
+      i => i.id === parseInt(checkedBoxId)
+    );
+    const modify = customerOrder.map(element => {
+      const {
+        checked,
+        id,
+        price,
+        itemName,
+        itemid,
+        value,
+        quantityValue
+      } = element;
+      if (element.id === parseInt(checkedBoxId)) {
+        const repairObject = {
+          checked: !checked,
+          id,
+          price,
+          itemName,
+          itemid,
+          value,
+          quantityValue
+        };
+        return repairObject;
+      } else {
+        return element;
+      }
+    });
+
+    handleChangeCart(modify);
+  };
+
+  const checkedOptionDelete = () => {
+    const clear = customerOrder.filter(item => item.checked === false);
+    handleChangeCart(clear);
+  };
+  const allclear = () => {
+    handleChangeCart([]);
+  };
+
+  const handleSortCart = () => {
+    const one = customerOrder.map(element => {
+      return element.itemid;
+    });
+    console.log(one);
   };
 
   const rendering = () => {
@@ -43,6 +93,8 @@ const CartPage = () => {
             >
               <input
                 type="checkbox"
+                checked={item.checked}
+                onChange={handleChecked}
                 style={{
                   position: "absolute",
                   top: "50%",
@@ -84,14 +136,22 @@ const CartPage = () => {
                     color="underPrice"
                     style={{
                       display: "inline-block",
-                      minWidth: "380px",
-                      maxWidth: "380px"
+                      minWidth: "370px",
+                      maxWidth: "370px"
                     }}
                   >
                     {item.value}
                   </Text>
                   <span>
-                    <span style={{ padding: "0 20px", color: "#ccc" }}>
+                    <span
+                      style={{
+                        padding: "0 20px",
+                        color: "#ccc",
+                        display: "inline-block",
+                        minWidth: "60px",
+                        maxWidth: "60px"
+                      }}
+                    >
                       {newPrice}
                     </span>
                     <select
@@ -135,7 +195,14 @@ const CartPage = () => {
     } else {
       return (
         <tr>
-          <td colSpan="4" style={{ textAlign: "center" }}>
+          <td
+            colSpan="4"
+            style={{
+              textAlign: "center",
+              height: "300px",
+              lineHeight: "300px"
+            }}
+          >
             장바구니가 비어있습니다.
           </td>
         </tr>
@@ -174,7 +241,7 @@ const CartPage = () => {
           일반구매({(customerOrder || []).length})
         </span>
       </div>
-      <table style={{ width: "100%"}}>
+      <table style={{ width: "100%" }}>
         <th
           colSpan="2"
           style={{
@@ -216,9 +283,22 @@ const CartPage = () => {
         </th>
         {rendering()}
       </table>
-      <div
-        style={{ width: "100%", height: "124px", background: "#EFEFEF" }}
-      ></div>
+      <div style={{ width: "100%", height: "124px", background: "#EFEFEF" }}>
+        <div>
+          <button onClick={allclear}>전체삭제</button>
+          <button onClick={checkedOptionDelete}>선택상품 삭제</button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%"
+          }}
+        >
+          <Button onClick={handleSortCart}>상품주문</Button>
+        </div>
+      </div>
     </Container>
   );
 };
