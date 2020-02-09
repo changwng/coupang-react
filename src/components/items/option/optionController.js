@@ -26,14 +26,10 @@ const Popup = styled.div`
 
 const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
   const {
-    setCartValue,
-    cartValue,
     popupdiState,
     setdiPopup,
     handleUpdateCart,
-    fetchOptionList,
-    customerOrder,
-    optionCounter
+    customerOrder
   } = useApplicationContext();
 
   const [selectOption, setOption] = useState([]);
@@ -77,8 +73,6 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
   let maxIdCounter = Math.max.apply(null, counter); //id중 가장 큰 값 추출
   let plusIdCounter = maxIdCounter + 1;
 
-
-  console.log(CounterTester);
   const saveOptions = value => {
     //배열이 넘어옴
     const newCartArr = []; //새로운 배열 준비
@@ -98,11 +92,11 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
         const { price, itemName, itemid, value, quantityValue } = element;
         if (CounterTester === 0) {
           const item = {
-            checked:false,
+            checked: false,
             id: defaultCounter,
+            itemid,
             price,
             itemName,
-            itemid,
             value,
             quantityValue
           };
@@ -110,18 +104,16 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
           newCartArr.push(item);
         } else {
           const item = {
-            checked:false,
+            checked: false,
             id: plusIdCounter,
+            itemid,
             price,
             itemName,
-            itemid,
             value,
             quantityValue
           };
           plusIdCounter++;
           newCartArr.push(item);
-
-          console.log(newCartArr, "실행");
         }
       } else {
         setCartState(3);
@@ -184,9 +176,8 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
               상품이 장바구니에 추가되었습니다.
             </Text>
             <Link to={"/cartpage"} style={{ textDecoration: "none" }}>
-            <Button subButton>장바구니 바로가기</Button>
+              <Button subButton>장바구니 바로가기</Button>
             </Link>
-            
           </div>
         );
       }

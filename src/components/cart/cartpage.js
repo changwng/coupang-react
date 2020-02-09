@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import Container from "../container";
 import { Logo, Button } from "../input";
 import { Text } from "../text";
@@ -7,26 +6,20 @@ import { Link } from "react-router-dom";
 import { useApplicationContext } from "../cartProvider/cartProvider";
 
 const CartPage = () => {
-  const {
-    customerOrder,
-    deleteCart,
-    handleChangeCart
-  } = useApplicationContext();
+  const [Arr, setArr] = useState([]);
+  const { customerOrder, handleChangeCart } = useApplicationContext();
 
   const deleteCartList = e => {
     const target =
       e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
     const clearOptionList = customerOrder.filter(function(element) {
-      return element.id != parseInt(target);
+      return element.id !== parseInt(target);
     });
     handleChangeCart(clearOptionList);
   };
 
   const handleChecked = e => {
     const checkedBoxId = e.target.parentNode.parentNode.id;
-    const IndexNumber = customerOrder.findIndex(
-      i => i.id === parseInt(checkedBoxId)
-    );
     const modify = customerOrder.map(element => {
       const {
         checked,
@@ -41,9 +34,9 @@ const CartPage = () => {
         const repairObject = {
           checked: !checked,
           id,
+          itemid,
           price,
           itemName,
-          itemid,
           value,
           quantityValue
         };
@@ -65,10 +58,54 @@ const CartPage = () => {
   };
 
   const handleSortCart = () => {
-    const one = customerOrder.map(element => {
-      return element.itemid;
+    //정렬
+    const readyToOptions = (customerOrder || []).sort((a, b) => {
+      return a.itemid - b.itemid;
     });
-    console.log(one);
+    handleChangeCart(readyToOptions);
+  };
+
+  useEffect(() => {
+    if (customerOrder) {
+      handleSortCart();
+    }
+  }, []);
+
+  const deliveryAccount = idx => {
+    const readyToOptions = (customerOrder || []).sort((a, b) => {//리스트를 정렬
+      return a.itemid - b.itemid;
+    });
+
+    const ABC = readyToOptions.filter(({ itemid }, index) => { //정렬된 리스트에서 중복값 추출
+      return readyToOptions.findIndex(i => i.itemid === itemid) === index;
+    });
+    let normal = [];
+    const newAbc = () => { //정렬된 리스트에서 중복값의 첫 인덱스번호 추출
+      ABC.forEach(element => {
+        const aa = readyToOptions.findIndex(i => i.itemid === element.itemid);
+        normal.push(aa); //추출된 인덱스번호 배열에 저장
+      });
+    };
+    newAbc();
+    const firstOption = normal.indexOf(idx); //현재 그려지고 있는 리스트가 배열에 존재하는지 검사
+
+    if (firstOption !== -1) { // 존재한다면 배송비 그림
+
+    //해당 인덱스가 몇번 중복되었는지 파악
+    const thisIndex = readyToOptions[idx]
+
+    const result = readyToOptions.filter(element => {
+      return element.itemid === thisIndex.itemid
+    })
+
+      return (
+        <td rowSpan={result.length}
+          style={{ border: "1px solid #DDD", textAlign: "center" }}
+        >
+          2500원
+        </td>
+      );
+    }
   };
 
   const rendering = () => {
@@ -186,9 +223,7 @@ const CartPage = () => {
             <td style={{ border: "1px solid #DDD", textAlign: "center" }}>
               {totalPrice}원
             </td>
-            <td style={{ borderLeft: "1px solid #DDD", textAlign: "center" }}>
-              2500원
-            </td>
+            {deliveryAccount(idx)}
           </tr>
         );
       });
@@ -242,46 +277,50 @@ const CartPage = () => {
         </span>
       </div>
       <table style={{ width: "100%" }}>
-        <th
-          colSpan="2"
-          style={{
-            borderTop: "1px solid #D8D8D8",
-            borderBottom: "1px solid #D8D8D8",
-            background: "#EFEFEF",
-            height: "45px",
-            lineHeight: "45px",
-            padding: "0"
-          }}
-        >
-          상품정보
-        </th>
-        <th
-          style={{
-            borderTop: "1px solid #D8D8D8",
-            borderBottom: "1px solid #D8D8D8",
-            background: "#EFEFEF",
-            width: "100px",
-            height: "45px",
-            lineHeight: "45px",
-            padding: "0"
-          }}
-        >
-          상품금액
-        </th>
-        <th
-          style={{
-            borderTop: "1px solid #D8D8D8",
-            borderBottom: "1px solid #D8D8D8",
-            background: "#EFEFEF",
-            width: "100px",
-            height: "45px",
-            lineHeight: "45px",
-            padding: "0"
-          }}
-        >
-          배송비
-        </th>
-        {rendering()}
+        <thead>
+          <tr>
+            <th
+              colSpan="2"
+              style={{
+                borderTop: "1px solid #D8D8D8",
+                borderBottom: "1px solid #D8D8D8",
+                background: "#EFEFEF",
+                height: "45px",
+                lineHeight: "45px",
+                padding: "0"
+              }}
+            >
+              <span>상품정보</span>
+            </th>
+            <th
+              style={{
+                borderTop: "1px solid #D8D8D8",
+                borderBottom: "1px solid #D8D8D8",
+                background: "#EFEFEF",
+                width: "100px",
+                height: "45px",
+                lineHeight: "45px",
+                padding: "0"
+              }}
+            >
+              <span>상품금액</span>
+            </th>
+            <th
+              style={{
+                borderTop: "1px solid #D8D8D8",
+                borderBottom: "1px solid #D8D8D8",
+                background: "#EFEFEF",
+                width: "100px",
+                height: "45px",
+                lineHeight: "45px",
+                padding: "0"
+              }}
+            >
+              <span>배송비</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>{rendering()}</tbody>
       </table>
       <div style={{ width: "100%", height: "124px", background: "#EFEFEF" }}>
         <div>

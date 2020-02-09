@@ -8,7 +8,7 @@ export const ApplicationContextProvider = ({ children }) => {
   const [prev, setPrev] = useState([]);
   const [popupdiState, setdiPopup] = useState(0);
 
-  const { customerOrder, optionCounter } = prev;
+  const { customerOrder } = prev;
 
   const handleUpdateCart = async element => {
     const response = await fetch(`http://localhost:8000/customer/19428`, {

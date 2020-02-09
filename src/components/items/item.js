@@ -5,7 +5,6 @@ import { Text, Ctext } from '../text';
 
 const Item = ({ image, underPrice, price, itemName, id, reviewCounter }) => {
 	const Price = price;
-	const quantity = underPrice;
 	const newPrice = Price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	const newUnderPrice = underPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
