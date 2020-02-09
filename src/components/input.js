@@ -58,6 +58,27 @@ export const Button = styled.button`
       background: transparent;
       padding: 8px;
     `}
+  ${({ xBox }) =>
+    xBox &&
+    css`
+      opacity: 0.3;
+      width: 14px;
+      height: 14px;
+      border: none;
+      margin: 1px 0 0 20px;
+      background: url("../img/imageasset.png");
+      background-position: ${({ backPosition }) => backPosition};
+	  vertical-align:middle;
+    `}
+  ${({ quantityBtn }) =>
+    quantityBtn &&
+    css`
+      width: 12px;
+      height: 8px;
+      background: url("../img/imageasset.png");
+      background-position: ${({ backPosition }) => backPosition};
+      border: none;
+    `}
 `;
 
 export const Li = styled.li`
@@ -86,7 +107,6 @@ export const Logo = styled.h1`
 export const Img = styled.div`
 	width: ${({ wsize }) => WIDTH_SIZES[wsize] || WIDTH_SIZES.full};
 	height: ${({ hsize }) => HEIGHT_SIZES[hsize]};
-  	background:url("../img/${({ background }) =>
-      background || "#000"}") no-repeat;
+  	background:url("../img/${({ background }) => background || "#000"}") no-repeat;
   	background-size: contain;
 `;

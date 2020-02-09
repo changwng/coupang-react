@@ -149,26 +149,7 @@
   ],
   "customer": [
     {
-      "customerOrder": [
-        {
-          "checked": false,
-          "id": 1,
-          "itemid": "2",
-          "price": "21500",
-          "itemName": "QCY-T1",
-          "value": "검은색",
-          "quantityValue": "1"
-        },
-        {
-          "checked": false,
-          "id": 2,
-          "itemid": "4",
-          "price": "16500",
-          "itemName": "다우니 퍼퓸 스노우",
-          "value": "라벤더",
-          "quantityValue": 1
-        }
-      ],
+      "customerOrder": [],
       "id": 19428
     }
   ]

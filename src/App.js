@@ -34,7 +34,7 @@ function App() {
           <Route path="/itemDetail/:id" component={ItemDetail} />
         </Container>
       </ApplicationContextProvider>
-      <Footer />
+      <Route exact path="/" component={Footer} />
     </Container>
   );
 }

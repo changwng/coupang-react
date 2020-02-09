@@ -1,29 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { Button } from "../../input";
 import Container from "../../container";
-
-const Button = styled.button`
-  ${({ xBox }) =>
-    xBox &&
-    css`
-      opacity: 0.3;
-      width: 14px;
-      height: 14px;
-      border: none;
-      margin: 1px 0 0 20px;
-      background: url("../img/imageasset.png");
-      background-position: ${({ backPosition }) => backPosition};
-    `}
-  ${({ quantityBtn }) =>
-    quantityBtn &&
-    css`
-      width: 12px;
-      height: 8px;
-      background: url("../img/imageasset.png");
-      background-position: ${({ backPosition }) => backPosition};
-      border: none;
-    `}
-`;
 
 const QuantityController = ({
   onChengeICounter,

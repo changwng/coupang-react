@@ -74,15 +74,9 @@ const OptionController = ({ optionValue, id: Itemid, itemName, price }) => {
   let plusIdCounter = maxIdCounter + 1;
 
   const saveOptions = value => {
-    //배열이 넘어옴
-    const newCartArr = []; //새로운 배열 준비
-
-    //db.json에 배열의 갯수를 담음
-
-    //배열중 가장 큰 값 가져오기
+    const newCartArr = [];
 
     value.forEach(element => {
-      //배열을 돌면서 검사함
       const id = element.itemid;
       const valued = element.value;
       let ExistenceStatus = customerOrder.findIndex(
