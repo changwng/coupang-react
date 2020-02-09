@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useApplicationContext } from "../cartProvider/cartProvider";
 
 const CartPage = () => {
-  const [Arr, setArr] = useState([]);
+  const [state, setState] = useState([]);
   const { customerOrder, handleChangeCart } = useApplicationContext();
 
   const deleteCartList = e => {
@@ -49,6 +49,39 @@ const CartPage = () => {
     handleChangeCart(modify);
   };
 
+  const handleChangeQuantityValue = e => {
+    const changeId =
+      e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+
+    const modify = customerOrder.map(element => {
+      const {
+        checked,
+        id,
+        price,
+        itemName,
+        itemid,
+        value,
+        quantityValue
+      } = element;
+      if (element.id === parseInt(changeId)) {
+        const repairObject = {
+          checked,
+          id,
+          itemid,
+          price,
+          itemName,
+          value,
+          quantityValue: e.target.value
+        };
+        return repairObject;
+      } else {
+        return element;
+      }
+    });
+
+    handleChangeCart(modify);
+  };
+
   const checkedOptionDelete = () => {
     const clear = customerOrder.filter(item => item.checked === false);
     handleChangeCart(clear);
@@ -70,17 +103,20 @@ const CartPage = () => {
       handleSortCart();
     }
   }, []);
-
+  let value = 0;
   const deliveryAccount = idx => {
-    const readyToOptions = (customerOrder || []).sort((a, b) => {//리스트를 정렬
+    const readyToOptions = (customerOrder || []).sort((a, b) => {
+      //리스트를 정렬
       return a.itemid - b.itemid;
     });
 
-    const ABC = readyToOptions.filter(({ itemid }, index) => { //정렬된 리스트에서 중복값 추출
+    const ABC = readyToOptions.filter(({ itemid }, index) => {
+      //정렬된 리스트에서 중복이 있는값 추출
       return readyToOptions.findIndex(i => i.itemid === itemid) === index;
     });
     let normal = [];
-    const newAbc = () => { //정렬된 리스트에서 중복값의 첫 인덱스번호 추출
+    const newAbc = () => {
+      //정렬된 리스트에서 중복값의 첫 인덱스번호 추출
       ABC.forEach(element => {
         const aa = readyToOptions.findIndex(i => i.itemid === element.itemid);
         normal.push(aa); //추출된 인덱스번호 배열에 저장
@@ -89,34 +125,67 @@ const CartPage = () => {
     newAbc();
     const firstOption = normal.indexOf(idx); //현재 그려지고 있는 리스트가 배열에 존재하는지 검사
 
-    if (firstOption !== -1) { // 존재한다면 배송비 그림
-
-    //해당 인덱스가 몇번 중복되었는지 파악
-    const thisIndex = readyToOptions[idx]
-
-    const result = readyToOptions.filter(element => {
-      return element.itemid === thisIndex.itemid
-    })
+    if (firstOption !== -1) {
+      // 존재한다면 배송비 그림
+      //해당 인덱스가 몇번 중복되었는지 파악
+      const thisIndex = readyToOptions[idx];
+      console.log(value);
+      const result = readyToOptions.filter(element => {
+        return element.itemid === thisIndex.itemid;
+      });
 
       return (
-        <td rowSpan={result.length}
-          style={{ border: "1px solid #DDD", textAlign: "center" }}
+        <td
+          rowSpan={result.length}
+          style={{
+            border: "1px solid #DDD",
+            textAlign: "center",
+            verticalAlign: "middle"
+          }}
         >
-          2500원
+          2,500원
         </td>
       );
     }
   };
+  const deliveryPrice = () => {
+    const readyToOptions = (customerOrder || []).sort((a, b) => {
+      return a.itemid - b.itemid;
+    });
+
+    const ABC = readyToOptions.filter(({ itemid }, index) => {
+      return readyToOptions.findIndex(i => i.itemid === itemid) === index;
+    });
+
+    return ABC.length * 2500;
+  };
+  const totalPriceResult = a => {
+    const Price = (customerOrder || []).map(element => {
+      return parseInt(element.price * element.quantityValue);
+    });
+
+    const result = Price.reduce((acc, cur, i) => {
+      return acc + cur;
+    }, 0);
+
+    if (a) {
+      return String(result).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } else {
+      return result;
+    }
+  };
+
+  const rerere = () => {
+    const a = deliveryPrice() + totalPriceResult()
+    return String(a).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
 
   const rendering = () => {
     if ((customerOrder || []).length !== 0) {
       return (customerOrder || []).map((item, idx) => {
         const Price = item.price;
         const quantity = item.quantityValue;
-        const newPrice = Price.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         const realPrice = parseInt(Price) * parseInt(quantity);
-        const resultPrice = String(realPrice);
-        const totalPrice = resultPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
         return (
           <tr id={item.id} key={idx} style={{ borderBottom: "1px solid #DDD" }}>
@@ -124,19 +193,14 @@ const CartPage = () => {
               style={{
                 width: "20px",
                 height: "20px",
-                position: "relative",
-                padding: "0 30px"
+                verticalAlign: "middle",
+                padding: "30px"
               }}
             >
               <input
                 type="checkbox"
                 checked={item.checked}
                 onChange={handleChecked}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  transform: "translateY(-50%)"
-                }}
               />
             </td>
             <td style={{ borderRight: "1px solid #DDD", padding: "14px 0" }}>
@@ -189,10 +253,11 @@ const CartPage = () => {
                         maxWidth: "60px"
                       }}
                     >
-                      {newPrice}
+                      {String(item.price).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                     </span>
                     <select
                       defaultValue={`${item.quantityValue}`}
+                      onChange={handleChangeQuantityValue}
                       style={{
                         border: "1px solid #eee",
                         width: "50px",
@@ -220,8 +285,14 @@ const CartPage = () => {
                 </div>
               </div>
             </td>
-            <td style={{ border: "1px solid #DDD", textAlign: "center" }}>
-              {totalPrice}원
+            <td
+              style={{
+                border: "1px solid #DDD",
+                textAlign: "center",
+                verticalAlign: "middle"
+              }}
+            >
+              {String(realPrice).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원
             </td>
             {deliveryAccount(idx)}
           </tr>
@@ -322,21 +393,43 @@ const CartPage = () => {
         </thead>
         <tbody>{rendering()}</tbody>
       </table>
-      <div style={{ width: "100%", height: "124px", background: "#EFEFEF" }}>
-        <div>
-          <button onClick={allclear}>전체삭제</button>
-          <button onClick={checkedOptionDelete}>선택상품 삭제</button>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%"
-          }}
-        >
-          <Button onClick={handleSortCart}>상품주문</Button>
-        </div>
+      <Container
+        display="df"
+        wsize="full"
+        style={{
+          height: "124px",
+          background: "#EFEFEF",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Text bold size="big" style={{ padding: "15px" }}>
+          상품가격 {totalPriceResult(1)}원
+        </Text>
+        <Text bold size="big" style={{ padding: "15px" }}>
+          배송비 {deliveryPrice()}원
+        </Text>
+        <Text bold size="big" style={{ padding: "15px" }}>
+          총 주문금액 {rerere()}원
+        </Text>
+      </Container>
+      <div style={{ padding: "10px" }}>
+        <Button onClick={allclear} checkButton>
+          전체삭제
+        </Button>
+        <Button onClick={checkedOptionDelete} checkButton>
+          선택상품 삭제
+        </Button>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%"
+        }}
+      >
+        <Button subButton>상품주문</Button>
       </div>
     </Container>
   );

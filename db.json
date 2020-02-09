@@ -153,64 +153,19 @@
         {
           "checked": false,
           "id": 1,
-          "itemid": "1",
-          "price": "643050",
-          "itemName": "이매지나리움 아트 아이언맨3 마크38 이고르 버스트 헬멧 피규어",
-          "value": "레드",
-          "quantityValue": 1
-        },
-        {
-          "checked": false,
-          "id": 8,
-          "itemid": "1",
-          "price": "643050",
-          "itemName": "이매지나리움 아트 아이언맨3 마크38 이고르 버스트 헬멧 피규어",
-          "value": "블루",
-          "quantityValue": 1
-        },
-        {
-          "checked": false,
-          "id": 7,
           "itemid": "2",
           "price": "21500",
           "itemName": "QCY-T1",
           "value": "검은색",
-          "quantityValue": 1
+          "quantityValue": "1"
         },
         {
           "checked": false,
-          "id": 9,
-          "itemid": "2",
-          "price": "21500",
-          "itemName": "QCY-T1",
-          "value": "하얀색",
-          "quantityValue": 1
-        },
-        {
-          "checked": false,
-          "id": 4,
+          "id": 2,
           "itemid": "4",
           "price": "16500",
           "itemName": "다우니 퍼퓸 스노우",
           "value": "라벤더",
-          "quantityValue": 1
-        },
-        {
-          "checked": false,
-          "id": 5,
-          "itemid": "9",
-          "price": "7900",
-          "itemName": "미스터퍼펙트 실리콘 변기솔",
-          "value": "핑크",
-          "quantityValue": 1
-        },
-        {
-          "checked": false,
-          "id": 10,
-          "itemid": "9",
-          "price": "7900",
-          "itemName": "미스터퍼펙트 실리콘 변기솔",
-          "value": "스카이블루",
           "quantityValue": 1
         }
       ],
