@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const WIDTH_SIZES = {
-  header: "1088px",
+  header: "1024px",
   full: "100%",
   slide: "300px",
   indi: "96px",
@@ -32,7 +32,7 @@ const Container = styled.div`
   ${({ indiContainer }) =>
     indiContainer &&
     css`
-      bottom: -120px;
+      bottom: -200px;
       position: relative;
       align-items: center;
     `}
@@ -56,7 +56,7 @@ const Container = styled.div`
       transition: ${({ transition }) => transition}s;
       position: absolute;
       z-index: -1;
-      left: ${({ left }) => left * 100}%;
+      left: ${({ left }) => -left * 100}%;
     `}
     ${({ item }) =>
       item &&

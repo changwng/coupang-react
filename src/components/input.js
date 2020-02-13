@@ -22,7 +22,7 @@ const HEIGHT_SIZES = {
 };
 
 export const Input = styled.input`
-  width: 445px;
+  width: 405px;
   height: 35px;
   border: 2px solid #4285f4;
   vertical-align: top;
@@ -78,6 +78,20 @@ export const Button = styled.button`
       background: url("../img/imageasset.png");
       background-position: ${({ backPosition }) => backPosition};
       border: none;
+    `}
+    ${({ slideButton }) =>
+    slideButton &&
+    css`
+      width: 45px;
+      height: 60px;
+      margin:0 30px;
+      background: url("../img/imageasset.png");
+      background-position: ${({ backPosition }) => backPosition};
+      border: none;
+
+      &:hover{
+        background-position: ${({ hoverPosition }) => hoverPosition};
+      }
     `}
 `;
 

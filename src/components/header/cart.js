@@ -25,6 +25,9 @@ const Icon = styled.div`
   font-weight: bold;
   line-height: 19px;
   margin:0 15px 8px 15px;
+  &:hover{
+    
+  }
 `
 
 const Cart = () => {

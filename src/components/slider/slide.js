@@ -7,6 +7,10 @@ const SlideContainer = styled.div`
   background: url('../img/${({ color }) => color}') no-repeat;
   background-size:cover;
   left: ${({ left }) => left * 100}%;
+
+  @media (max-width:700px) {
+    display:none;
+  }
 `;
 
 export default SlideContainer;

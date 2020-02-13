@@ -40,4 +40,4 @@ const CheckBox = ({checked}) => {
   return <Input type="checkbox" checked={checked} onChange={handleChecked}/>;
 };
 
-export default CheckBox;
+export default React.memo(CheckBox);

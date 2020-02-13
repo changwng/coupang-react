@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 import Container from "../container";
 import { Button, Input, Li, Logo } from "../input";
 import { Link } from "react-router-dom";
 import Cart from "./cart";
+import CartegoryPopup from './category'
 
 const Header = () => {
+  const [categoryState, setCategoryState] = useState(false);
+  const categoryBoxDown = () => {
+    setCategoryState(true);
+  };
+  const categoryBoxHidden = () => {
+    setCategoryState(false);
+  };
+
   return (
     <Container
       wsize="header"
@@ -13,10 +23,12 @@ const Header = () => {
       style={{ alignItems: "center" }}
     >
       <Container
+         onMouseLeave={categoryBoxHidden} onMouseEnter={categoryBoxDown}
         wsize="button"
         hsize="header"
         display="df"
         style={{
+          position:"relative",
           background: "#4285F4",
           justifyContent: "center",
           alignItems: "center",
@@ -30,9 +42,10 @@ const Header = () => {
             background: `url('../img/menu.png')`
           }}
         ></div>
-        <span style={{ fontSize: "11px", color: "#fff", marginTop: "5px" }}>
+        <span style={{ fontSize: "11px", color: "#fff", marginTop: "5px" }} >
           카테고리
         </span>
+        {categoryState && <CartegoryPopup/>}
       </Container>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex" }}>
@@ -69,10 +82,10 @@ const Header = () => {
       </div>
 
       <div style={{ display: "flex", marginLeft: "43px" }}>
-        <div style={{marginRight:"20px"}}>
+        <div style={{ marginRight: "20px" }}>
           <span
             style={{
-              display:"block",
+              display: "block",
               width: "29px",
               height: "31px",
               background: `url('../img/icon.png')`,
