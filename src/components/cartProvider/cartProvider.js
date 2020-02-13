@@ -7,7 +7,7 @@ export const ApplicationContextProvider = ({ children }) => {
   const [cartValue, setCartValue] = useState([]);
   const [prev, setPrev] = useState([]);
   const [popupdiState, setdiPopup] = useState(0);
-
+  const [slideList, setSlideList] = useState([]);
   const { customerOrder } = prev;
 
   const handleUpdateCart = async element => {
@@ -50,6 +50,16 @@ export const ApplicationContextProvider = ({ children }) => {
     fetchItems();
   };
 
+  const fetchslideList = () => {
+    const fetchItems = async () => {
+      const response = await fetch("http://localhost:8000/slider");
+      if (response.ok) {
+        setSlideList(await response.json());
+      }
+    };
+    fetchItems();
+  };
+
   const deleteCart = async id => {
     const response = await fetch(`http://localhost:8000/customer/19428/${id}`, {
       method: "DELETE"
@@ -67,7 +77,9 @@ export const ApplicationContextProvider = ({ children }) => {
     fetchOptionList,
     customerOrder,
     deleteCart,
-    handleChangeCart
+    handleChangeCart,
+    fetchslideList,
+    slideList
   };
 
   useEffect(() => {
