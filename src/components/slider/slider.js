@@ -34,7 +34,7 @@ const SlideComponent = () => {
       clearInterval(interval);
     };
   }, [intervalState]);
-  if (slideMove === SLIDE.length) {
+  if (slideMove === SLIDE.length-1) {
     setSlideMove(0);
   }
 
