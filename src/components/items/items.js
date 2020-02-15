@@ -21,7 +21,7 @@ const Items = ({ onItems }) => {
       wsize="header"
       display="df"
       style={{
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         flexFlow: "row wrap",
         borderTop: "1px solid #D5D5D5"
       }}

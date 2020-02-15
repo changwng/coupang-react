@@ -3,6 +3,7 @@ import Header from "./components/header/header";
 import Slider from "./components/slider/slider";
 import Container from "./components/container";
 import Items from "./components/items/items";
+import SortItemsList from "./components/items/sortItemsList";
 import ItemDetail from "./components/items/itemdetail";
 import Footer from "./components/footer/footer";
 import CartPage from "./components/cart/cartpage";
@@ -17,8 +18,9 @@ function App() {
     >
       <ApplicationContextProvider>
         <Route exact path="/" component={Header} />
-        <Route exact path="/itemDetail/:id" component={Header} />
         <Route exact path="/" component={Slider} />
+        <Route exact path="/itemDetail/:id" component={Header} />
+        <Route path="/category" component={Header} />
         <Container
           wsize="full"
           hsize="full"
@@ -31,7 +33,8 @@ function App() {
         >
           <Route exact path="/cartpage" component={CartPage} />
           <Route exact path="/" component={Items} />
-          <Route path="/itemDetail/:id" component={ItemDetail} />
+          <Route exact path="/itemDetail/:id" component={ItemDetail} />
+          <Route path="/category" component={SortItemsList} />
         </Container>
       </ApplicationContextProvider>
       <Route exact path="/" component={Footer} />

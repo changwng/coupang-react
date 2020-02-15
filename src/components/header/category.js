@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
 const Popup = styled.ul`
   width: 250px;
@@ -29,15 +30,15 @@ const CartegoryPopup = () => {
 
     return (
         <Popup>
-            <Li><Icon/>패션의류/잡화</Li>
-            <Li><Icon bgPosition="-29px -115px"/>뷰티</Li>
-            <Li><Icon bgPosition="-29px -156px"/>출산/유아동</Li>
-            <Li><Icon bgPosition="-29px -199px"/>식품</Li>
-            <Li><Icon bgPosition="-29px -241px"/>주방용품</Li>
-            <Li><Icon bgPosition="-29px -282px"/>생활용품</Li>
-            <Li><Icon bgPosition="-29px -326px"/>홈인테리어</Li>
-            <Li><Icon bgPosition="-29px -368px"/>가전디지털</Li>
-            <Li><Icon bgPosition="-29px -702px"/>완구/취미</Li>
+            <Li><Icon/><Link to="/category#패션의류/잡화">패션의류/잡화</Link></Li>
+            <Li><Icon bgPosition="-29px -115px"/><Link to="/category#뷰티">뷰티</Link></Li>
+            <Li><Icon bgPosition="-29px -156px"/><Link to="/category#출산/유아동">출산/유아동</Link></Li>
+            <Li><Icon bgPosition="-29px -199px"/><Link to="/category#식품">식품</Link></Li>
+            <Li><Icon bgPosition="-29px -241px"/><Link to="/category#주방용품">주방용품</Link></Li>
+            <Li><Icon bgPosition="-29px -282px"/><Link to="/category#생활용품">생활용품</Link></Li>
+            <Li><Icon bgPosition="-29px -326px"/><Link to="/category#홈인테리어">홈인테리어</Link></Li>
+            <Li><Icon bgPosition="-29px -368px"/><Link to="/category#가전디지털">가전디지털</Link></Li>
+            <Li><Icon bgPosition="-29px -702px"/><Link to="/category#완구/취미">완구/취미</Link></Li>
         </Popup>
     )
 }

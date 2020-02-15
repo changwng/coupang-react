@@ -1,112 +1,162 @@
 {
   "item": [
     {
+      "category": "완구/취미",
       "image": "itemImg/item_img4.jpg",
       "itemName": "이매지나리움 아트 아이언맨3 마크38 이고르 버스트 헬멧 피규어",
       "underPrice": "739140",
       "price": "643050",
       "reviewCounter": "32",
       "id": 1,
-      "option": ["블루", "레드", "블랙"]
+      "option": [
+        "블루",
+        "레드",
+        "블랙"
+      ]
     },
     {
+      "category": "가전디지털",
       "image": "itemImg/item_img2.jpg",
       "itemName": "QCY-T1",
       "underPrice": "36500",
       "price": "21500",
       "reviewCounter": "32",
       "id": 2,
-      "option": ["하얀색", "검은색"]
+      "option": [
+        "하얀색",
+        "검은색"
+      ]
     },
     {
+      "category": "주방용품",
       "image": "itemImg/item_img3.jpg",
       "itemName": "도시락",
       "underPrice": "30000",
       "price": "9000",
       "reviewCounter": "32",
       "id": 3,
-      "option": ["핑크색", "주황색"]
+      "option": [
+        "핑크색",
+        "주황색"
+      ]
     },
     {
+      "category": "생활용품",
       "image": "itemImg/item_img1.jpg",
       "itemName": "다우니 퍼퓸 스노우",
       "underPrice": "30000",
       "price": "16500",
       "reviewCounter": "32",
       "id": 4,
-      "option": ["라벤더", "로즈"]
+      "option": [
+        "라벤더",
+        "로즈"
+      ]
     },
     {
+      "category": "생활용품",
       "image": "itemImg/item_img5.jpg",
       "itemName": "샤바스 스칸디나 스파테라피 이동식 반신욕조 다용도중형",
       "underPrice": "25900",
       "price": "19900",
       "reviewCounter": "32",
       "id": 5,
-      "option": ["화이트", "블랙"]
+      "option": [
+        "화이트",
+        "블랙"
+      ]
     },
     {
+      "category": "생활용품",
       "image": "itemImg/item_img6.jpg",
       "itemName": "깨끗한나라 3겹 데코 순수 프리미엄 천연펄프 롤화장지 30m",
       "underPrice": "17180",
       "price": "16500",
       "reviewCounter": "32",
       "id": 6,
-      "option": ["30롤 x 1개", "30롤 x 2개"]
+      "option": [
+        "30롤 x 1개",
+        "30롤 x 2개"
+      ]
     },
     {
+      "category": "식품",
       "image": "itemImg/item_img7.jpg",
       "itemName": "유천냉면 물냉면5인세트",
       "underPrice": "35000",
       "price": "31500",
       "reviewCounter": "32",
       "id": 7,
-      "option": ["5개 세트", "10개 세트"]
+      "option": [
+        "5개 세트",
+        "10개 세트"
+      ]
     },
     {
+      "category": "뷰티",
       "image": "itemImg/item_img8.jpg",
       "itemName": "라로슈포제 에빠끌라 듀오 DUO (＋) 40ml X 2",
       "underPrice": "30000",
       "price": "28800",
       "reviewCounter": "32",
       "id": 8,
-      "option": ["1개 묶음", "5개 묶음"]
+      "option": [
+        "1개 묶음",
+        "5개 묶음"
+      ]
     },
     {
+      "category": "생활용품",
       "image": "itemImg/item_img9.jpg",
       "itemName": "미스터퍼펙트 실리콘 변기솔",
       "underPrice": "10000",
       "price": "7900",
       "reviewCounter": "32",
       "id": 9,
-      "option": ["핑크", "스카이블루"]
+      "option": [
+        "핑크",
+        "스카이블루"
+      ]
     },
     {
+      "category": "생활용품",
       "image": "itemImg/item_img10.jpg",
       "itemName": "깨끗한나라 페퍼민트 물티슈 캡형",
       "underPrice": "12030",
       "price": "11429",
       "reviewCounter": "32",
       "id": 10,
-      "option": ["70매 10팩", "70매 20팩", "70매 32팩"]
+      "option": [
+        "70매 10팩",
+        "70매 20팩",
+        "70매 32팩"
+      ]
     },
     {
+      "category": "주방용품",
       "image": "itemImg/item_img11.jpg",
       "itemName": "뉴해피크린 음식물처리기분쇄기디스포저DW-253A(B)",
       "underPrice": "458000",
       "price": "429000",
       "reviewCounter": "32",
       "id": 11,
-      "option": ["가정용", "업소용"]
+      "option": [
+        "가정용",
+        "업소용"
+      ]
     },
     {
+      "category": "생활용품",
       "image": "itemImg/item_img12.jpg",
       "itemName": "깨끗한나라 데일리 천연펄프 키친타올 200매",
       "underPrice": "20000",
       "price": "15050",
       "reviewCounter": "32",
       "id": 12,
-      "option": ["12개입 1개", "24개입 1개"]
+      "option": [
+        "12개입 1개",
+        "24개입 1개"
+      ]
     }
   ],
   "customer": [
@@ -114,11 +164,29 @@
       "customerOrder": [
         {
           "checked": false,
+          "id": 3,
+          "itemid": "3",
+          "price": "9000",
+          "itemName": "도시락",
+          "value": "핑크색",
+          "quantityValue": 1
+        },
+        {
+          "checked": false,
           "id": 1,
-          "itemid": "7",
-          "price": "31500",
-          "itemName": "유천냉면 물냉면5인세트",
-          "value": "5개 세트",
+          "itemid": "5",
+          "price": "19900",
+          "itemName": "샤바스 스칸디나 스파테라피 이동식 반신욕조 다용도중형",
+          "value": "화이트",
+          "quantityValue": 1
+        },
+        {
+          "checked": false,
+          "id": 4,
+          "itemid": "1",
+          "price": "643050",
+          "itemName": "이매지나리움 아트 아이언맨3 마크38 이고르 버스트 헬멧 피규어",
+          "value": "블루",
           "quantityValue": 1
         }
       ],
@@ -133,10 +201,6 @@
     {
       "slideImg": "slide_two.jpg",
       "content": "노트북 신제품 최대 36%"
-    },
-    {
-      "slideImg": "slide_thr.jpg",
-      "content": "설 연휴 호텔&리조트"
     }
   ]
 }

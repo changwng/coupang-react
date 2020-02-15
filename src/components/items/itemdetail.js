@@ -34,9 +34,6 @@ const ItemDetail = ({
         display="dif"
         style={{ flexDirection: "row", verticalAlign: "top" }}
       >
-        <Container>
-          <Img wsize="smallImg" hsize="smallImg" background={image}></Img>
-        </Container>
         <Img wsize="bigImg" hsize="bigImg" background={image}></Img>
       </Container>
       <Container
